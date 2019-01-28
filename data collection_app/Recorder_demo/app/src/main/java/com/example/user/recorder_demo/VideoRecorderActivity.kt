@@ -78,9 +78,6 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
             user_gender = intent.getStringExtra("In_gender")
             user_alchol = intent.getStringExtra("In_alchol")
 
-
-
-            // Toast.makeText(this, user_age + user_alchol + user_gender + user_name, Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "온전한 정보가 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
         }
@@ -153,11 +150,16 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
                     recorder = MediaRecorder()
                 }
 
+
+
+
+                recorder!!.setCamera(camera)
+                camera!!.unlock();
                 recorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
                 recorder!!.setVideoSource(MediaRecorder.VideoSource.CAMERA)
                 recorder!!.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
                 recorder!!.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT)
-                recorder!!.setVideoEncoder(MediaRecorder.VideoEncoder.DEFAULT)
+                recorder!!.setVideoEncoder(MediaRecorder.VideoEncoder.H264)
 
                 filename = createFilename()
                 recorder!!.setOutputFile(filename)
@@ -167,6 +169,7 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
                 recorder!!.start()
 
             } catch (ex: Exception) {
+                ex.printStackTrace()
                 recorder!!.release()
                 recorder = null
             }
@@ -184,7 +187,6 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
             //버튼
             Stop_Next_button.visibility = View.INVISIBLE
             Next_button.visibility = View.VISIBLE
-
 
             val values = ContentValues(10)
 
@@ -209,19 +211,13 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
 
         //다음으로
         Next_button.setOnClickListener {
-
             val resultIntent = Intent(this@VideoRecorderActivity, VoiceRecorderActivity::class.java) // Intent객체 생성방법
-
             resultIntent.putExtra("In_name", user_name)
             resultIntent.putExtra("In_age", user_age)
             resultIntent.putExtra("In_gender", user_gender)
             resultIntent.putExtra("In_alchol", user_alchol)
-
-
             startActivity(resultIntent)
         }
-
-
     }
 
     private fun createFilename(): String {
@@ -229,33 +225,6 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
             today + ".mp4"
     }
 
-
-    /*
-    private void Draw()
-    {
-        Canvas canvas = surfaceHolder.lockCanvas(null);
-
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(Color.GREEN);
-        paint.setStrokeWidth(5);
-
-        RectLeft = deviceWidth/2 + 400;
-        RectRight = deviceWidth/2 - 400;
-        RectTop = deviceHeight/2 + 200;
-        RectBottom = deviceHeight/2 - 600;
-        Rect rec=new Rect((int) RectLeft,(int)RectTop,(int)RectRight,(int)RectBottom);
-        canvas.drawRect(rec,paint);
-        surfaceHolder.unlockCanvasAndPost(canvas);
-    }
-    public static int getScreenWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
-    }
-
-    public static int getScreenHeight() {
-        return Resources.getSystem().getDisplayMetrics().heightPixels;
-    }
-*/
     override fun surfaceChanged(
         holder: SurfaceHolder, format: Int, width: Int,
         height: Int
@@ -267,6 +236,8 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
 
         if (camera != null) {
             try {
+
+                camera!!.setDisplayOrientation(90)
                 camera!!.setPreviewDisplay(surfaceHolder)
                 camera!!.startPreview()
                 previewing = true
@@ -279,7 +250,8 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
-        camera = Camera.open(0)
+        camera = Camera.open(findFrontCamera())
+        camera!!.setDisplayOrientation(90)
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
@@ -288,6 +260,23 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
         camera = null
         previewing = false
     }
+
+    fun findFrontCamera() : Int
+    {
+        var cameraId = -1
+        var numCamera = Camera.getNumberOfCameras()
+
+        for (i in 0..numCamera) {
+            var cmInfo = Camera.CameraInfo()
+            Camera.getCameraInfo(i, cmInfo)
+            if (cmInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                cameraId = i;
+                break;
+            }
+        }
+        return cameraId
+    }
+
 
     companion object {
         private var EXTERNAL_STORAGE_PATH: String? = ""

@@ -21,8 +21,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private val permissions = arrayOf("android.permission.RECORD_AUDIO", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"
-        ,"android.permission.READ_EXTERNAL_STORAGE","android.hardware.camera2" )
+    private val permissions = arrayOf("android.permission.RECORD_AUDIO",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.hardware.camera2" )
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +93,6 @@ class MainActivity : AppCompatActivity() {
         input_information_button.setOnClickListener {
             if(editText_name.text.toString() == "이름입력")
             {
-
                 Toast.makeText(this@MainActivity, "이름을 입력해주세요.", Toast.LENGTH_LONG).show()
             }
             else {
@@ -100,14 +102,9 @@ class MainActivity : AppCompatActivity() {
                 resultIntent.putExtra("In_age", spinner_age.selectedItem.toString())
                 resultIntent.putExtra("In_gender", spinner_gender.selectedItem.toString())
                 resultIntent.putExtra("In_alchol", spinner_alchol.selectedItem.toString())
-
-
                 startActivity(resultIntent)
             }
         }
-
-
-        ///
     }
 
     //권한 획득
