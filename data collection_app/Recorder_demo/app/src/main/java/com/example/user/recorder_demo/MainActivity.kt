@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "이름을 입력해주세요.", Toast.LENGTH_LONG).show()
             }
             else {
-                val resultIntent = Intent(this@MainActivity, VideoRecorderActivity::class.java) // Intent객체 생성방법
+                val resultIntent = Intent(this@MainActivity, ImageCaptureActivity::class.java) // Intent객체 생성방법
 
                 resultIntent.putExtra("In_name", editText_name.text.toString())
                 resultIntent.putExtra("In_age", spinner_age.selectedItem.toString())
