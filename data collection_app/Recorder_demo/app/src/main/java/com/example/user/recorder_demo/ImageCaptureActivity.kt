@@ -19,6 +19,7 @@ import android.hardware.camera2.TotalCaptureResult
 import android.hardware.camera2.params.StreamConfigurationMap
 import android.media.Image
 import android.media.ImageReader
+import android.net.Uri
 import android.os.*
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
@@ -236,8 +237,12 @@ class ImageCaptureActivity : AppCompatActivity() {
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation))
 
 
+            // 파일 디렉토리 생성
+            val dir = File(Environment.getExternalStorageDirectory().toString() + "/dcim/al")
+            dir.mkdir()
             //파일이름 저장하는 부분이고 save()로가면 save에서 파일스트림으로 저장하는데 왜저장안됨?
-            val file = File(Environment.getExternalStorageDirectory().toString() + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
+
+            val file = File(Environment.getExternalStorageDirectory().toString() + "/dcim/al/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
                     today + ".jpg")
 
             val readerListener = object : ImageReader.OnImageAvailableListener {
@@ -251,7 +256,7 @@ class ImageCaptureActivity : AppCompatActivity() {
                         save(bytes)
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
-                    } catch (e: IOException) {
+                    } catch (e: Exception) {
                         e.printStackTrace()
                     } finally {
                         image?.close()
@@ -265,7 +270,11 @@ class ImageCaptureActivity : AppCompatActivity() {
                     try {
                         output = FileOutputStream(file)
                         output.write(bytes)
-                    } finally {
+                        applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory()+ "/dcim/al")))
+                    } catch(e : Exception )
+                    {
+                        e.printStackTrace()
+                    }finally {
                         output?.close()
                     }
                 }
