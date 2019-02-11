@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.CAMERA",
         "android.permission.READ_EXTERNAL_STORAGE",
-        "android.hardware.camera2" )
+        "android.hardware.camera2" ,"android.permission.MOUNT_UNMOUNT")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
