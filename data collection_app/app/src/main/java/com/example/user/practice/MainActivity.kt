@@ -1,4 +1,4 @@
-package com.example.user.recorder_demo
+package com.example.user.practice
 
 import android.content.Intent
 import android.content.pm.PackageManager

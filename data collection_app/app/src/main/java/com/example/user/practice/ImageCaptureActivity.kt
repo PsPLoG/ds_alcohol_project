@@ -1,4 +1,4 @@
-package com.example.user.recorder_demo
+package com.example.user.practice
 
 
 import android.Manifest
@@ -32,11 +32,7 @@ import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.OutputStream
+import java.io.*
 import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -159,16 +155,16 @@ class ImageCaptureActivity : AppCompatActivity() {
         //버튼
         val Next_button = findViewById(R.id.button_next2) as Button
 
-
+/*
         //다음으로
         Next_button.setOnClickListener {
-            val resultIntent = Intent(this@ImageCaptureActivity, VoiceRecorderActivity::class.java) // Intent객체 생성방법
+            val resultIntent = Intent(this@ImageCaptureActivity, ImageCaptureActivity::class.java) // Intent객체 생성방법
             resultIntent.putExtra("In_name", user_name)
             resultIntent.putExtra("In_age", user_age)
             resultIntent.putExtra("In_gender", user_gender)
             resultIntent.putExtra("In_alchol", user_alchol)
             startActivity(resultIntent)
-        }
+        }*/
 
 
 /*
@@ -233,7 +229,7 @@ class ImageCaptureActivity : AppCompatActivity() {
             captureBuilder.addTarget(reader.surface)
             captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO)
             // Orientation
-            val rotation = windowManager.defaultDisplay.rotation
+            val rotation = 0
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation))
 
 
@@ -263,11 +259,12 @@ class ImageCaptureActivity : AppCompatActivity() {
                     }
                 }
 
-                //여기서 저장. 근데 안됨;
+                //여기서 저장. 비트맵 이라는 변수를 추가하여 비트맵을 rotate로 뒤집을 거임
                 @Throws(IOException::class)
                 private fun save(bytes: ByteArray) {
                     var output: OutputStream? = null
                     try {
+
                         output = FileOutputStream(file)
                         output.write(bytes)
                         applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory()+ "/dcim/al")))
@@ -466,6 +463,7 @@ class ImageCaptureActivity : AppCompatActivity() {
         }
 
     */
+
 
     //2월11일, 카메라 돌아가는거 고쳤다.
     companion object {
