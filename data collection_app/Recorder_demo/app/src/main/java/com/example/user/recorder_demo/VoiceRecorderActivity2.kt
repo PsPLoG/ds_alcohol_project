@@ -16,7 +16,7 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class VoiceRecorderActivity : AppCompatActivity() {
+class VoiceRecorderActivity2 : AppCompatActivity() {
     //초기화 및 허가
     private var myAudioRecorder: MediaRecorder? = null
     private var output: String? = null
@@ -73,8 +73,8 @@ class VoiceRecorderActivity : AppCompatActivity() {
         play = findViewById<View>(R.id.button_play1) as Button
         next = findViewById<View>(R.id.button_voice_next1) as Button
 
-        //첫번째 글자
-        text_first.visibility = View.VISIBLE
+        //두번째 글자
+        text_second.visibility = View.VISIBLE
 
 
         button_start1.setOnClickListener {
@@ -157,7 +157,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
     fun next()
     {
         //다음 어절 녹음
-        val resultIntent = Intent(this@VoiceRecorderActivity, VoiceRecorderActivity2::class.java) // Intent객체 생성방법
+        val resultIntent = Intent(this@VoiceRecorderActivity2, VoiceRecorderActivity3::class.java) // Intent객체 생성방법
         resultIntent.putExtra("In_name", user_name)
         resultIntent.putExtra("In_age", user_age)
         resultIntent.putExtra("In_gender", user_gender)

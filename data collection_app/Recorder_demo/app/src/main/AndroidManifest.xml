@@ -29,6 +29,15 @@
         </activity>
         <activity android:name=".VoiceRecorderActivity">
         </activity>
+        <activity android:name=".VoiceRecorderActivity2">
+        </activity>
+        <activity android:name=".VoiceRecorderActivity3">
+        </activity>
+
+
+
+
+
         <activity android:name=".ImageCaptureActivity">
         </activity>
         <activity android:name=".ImageCaptureActivity1">
