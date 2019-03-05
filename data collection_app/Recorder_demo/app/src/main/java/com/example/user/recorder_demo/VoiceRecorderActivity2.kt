@@ -73,8 +73,6 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
         play = findViewById<View>(R.id.button_play1) as Button
         next = findViewById<View>(R.id.button_voice_next1) as Button
 
-        //두번째 글자
-        text_second.visibility = View.VISIBLE
 
 
         button_start1.setOnClickListener {
@@ -95,7 +93,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
 
 
         //파일위치는 내파일/내장메모리/myrecording.3gp
-        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + ".3gp"
+        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "second" + ".3gp"
         myAudioRecorder = MediaRecorder()
         myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
         myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -107,7 +105,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
     fun start() {
         try {
             //재시작했을때를 위해 한번 더 시도
-            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + ".3gp"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "second" + ".3gp"
             myAudioRecorder = MediaRecorder()
             myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
             myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -130,7 +128,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
         // 1~2.5, 3.5~5.0, 6.0~ 7.5... 한번 녹음 할때마다 1.5초씩!
         Run.after(8000) {stop()}
 
-        //불들어오는 타이밍
+        //글자가 나타나는 타이밍
         Run.after(1000) {light_on()}
         Run.after(2500) {light_off()}
         Run.after(3500) {light_on()}
@@ -189,12 +187,12 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
 
     fun light_on()
     {
-        imageView_light.setImageResource(R.drawable.star_on)
+        text_second.visibility = View.VISIBLE
     }
 
     fun light_off()
     {
-        imageView_light.setImageResource(R.drawable.star_off)
+        text_second.visibility = View.INVISIBLE
     }
 
 

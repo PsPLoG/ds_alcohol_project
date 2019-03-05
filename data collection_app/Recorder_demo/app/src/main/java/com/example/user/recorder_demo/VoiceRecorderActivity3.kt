@@ -73,9 +73,6 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
         play = findViewById<View>(R.id.button_play1) as Button
         next = findViewById<View>(R.id.button_voice_next1) as Button
 
-        //세번째 글자
-        text_third.visibility = View.VISIBLE
-
 
         button_start1.setOnClickListener {
             start()
@@ -95,7 +92,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
 
 
         //파일위치는 내파일/내장메모리/myrecording.3gp
-        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + ".3gp"
+        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "third" + ".3gp"
         myAudioRecorder = MediaRecorder()
         myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
         myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -107,7 +104,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
     fun start() {
         try {
             //재시작했을때를 위해 한번 더 시도
-            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + ".3gp"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "third" + ".3gp"
             myAudioRecorder = MediaRecorder()
             myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
             myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -130,7 +127,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
         // 1~2.5, 3.5~5.0, 6.0~ 7.5... 한번 녹음 할때마다 1.5초씩!
         Run.after(8000) {stop()}
 
-        //불들어오는 타이밍
+        //글자가 나타나는 타이밍
         Run.after(1000) {light_on()}
         Run.after(2500) {light_off()}
         Run.after(3500) {light_on()}
@@ -148,21 +145,20 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
         myAudioRecorder = null
         play!!.isEnabled = true
 
+
+        //NEXT -> SEND로 이름을 바꾸어서 보여줌
+        button_voice_next1.text = "SEND"
         next!!.visibility = View.VISIBLE
+
+
 
         Toast.makeText(applicationContext, "Audio recorded successfully", Toast.LENGTH_SHORT).show()
 
     }
-
+    //VoiceRecorderActivity1과 2와 메소드는 같지만 서버로 보내는 작업으로 나타낼것임
     fun next()
     {
-        //다음 어절 녹음
-        val resultIntent = Intent(this@VoiceRecorderActivity3, VoiceRecorderActivity3::class.java) // Intent객체 생성방법
-        resultIntent.putExtra("In_name", user_name)
-        resultIntent.putExtra("In_age", user_age)
-        resultIntent.putExtra("In_gender", user_gender)
-        resultIntent.putExtra("In_alchol", user_alchol)
-        startActivity(resultIntent)
+        TODO("서버로 보내는 작업")
     }
 
     @Throws(IllegalArgumentException::class, SecurityException::class, IllegalStateException::class, IOException::class)
@@ -189,12 +185,12 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
 
     fun light_on()
     {
-        imageView_light.setImageResource(R.drawable.star_on)
+        text_third.visibility = View.VISIBLE
     }
 
     fun light_off()
     {
-        imageView_light.setImageResource(R.drawable.star_off)
+        text_third.visibility = View.INVISIBLE
     }
 
 
