@@ -11,11 +11,18 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     //오류인지 봅시다
     private var TAG = "Error_Check"
+
+    //현재시간
+    var formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
+    var cal = Calendar.getInstance()
+    var today: String? = formatter.format(cal.getTime())
 
     //권한 얻기위한 변수
     private var permissionToRecordAccepted = false
@@ -112,6 +119,7 @@ class MainActivity : AppCompatActivity() {
                 resultIntent.putExtra("In_age", spinner_age.selectedItem.toString())
                 resultIntent.putExtra("In_gender", spinner_gender.selectedItem.toString())
                 resultIntent.putExtra("In_alchol", spinner_alchol.selectedItem.toString())
+                resultIntent.putExtra("In_today", today)
                 startActivity(resultIntent)
             }
         }

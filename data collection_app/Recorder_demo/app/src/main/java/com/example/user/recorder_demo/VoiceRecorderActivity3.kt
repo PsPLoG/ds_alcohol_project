@@ -11,12 +11,25 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import kotlinx.android.synthetic.main.voicerecorder.*
+import org.jetbrains.anko.toast
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
 class VoiceRecorderActivity3 : AppCompatActivity() {
+
+    //네트워크 서비스
+    val networkService: NetworkService by lazy {
+        ApplicationController.instance.networkService
+    }
+
     //초기화 및 허가
     private var myAudioRecorder: MediaRecorder? = null
     private var output: String? = null
@@ -29,11 +42,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
     var user_age : String? = null
     var user_gender : String? = null
     var user_alchol : String? = null
-
-    //현재시간
-    var formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
-    var cal = Calendar.getInstance()
-    var today: String? = formatter.format(cal.getTime())
+    var user_today : String? = null
 
 
 
@@ -59,6 +68,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
             user_age = intent.getStringExtra("In_age")
             user_gender = intent.getStringExtra("In_gender")
             user_alchol = intent.getStringExtra("In_alchol")
+            user_today = intent.getStringExtra("In_today")
 
 
 
@@ -92,7 +102,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
 
 
         //파일위치는 내파일/내장메모리/myrecording.3gp
-        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "third" + ".3gp"
+        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "third" + ".3gp"
         myAudioRecorder = MediaRecorder()
         myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
         myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -104,7 +114,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
     fun start() {
         try {
             //재시작했을때를 위해 한번 더 시도
-            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "third" + ".3gp"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "third" + ".3gp"
             myAudioRecorder = MediaRecorder()
             myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
             myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -156,10 +166,59 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
 
     }
     //VoiceRecorderActivity1과 2와 메소드는 같지만 서버로 보내는 작업으로 나타낼것임
+
+
     fun next()
     {
-        TODO("서버로 보내는 작업")
+        //다음 어절 녹음
+        val resultIntent = Intent(this@VoiceRecorderActivity3, WriteActivity::class.java) // Intent객체 생성방법
+        resultIntent.putExtra("In_name", user_name)
+        resultIntent.putExtra("In_age", user_age)
+        resultIntent.putExtra("In_gender", user_gender)
+        resultIntent.putExtra("In_alchol", user_alchol)
+        resultIntent.putExtra("In_today", user_today)
+        startActivity(resultIntent)
     }
+
+    //서버로 보내는 작업
+/*
+    private fun getSendFileResponse() {
+        //EditText 에  있는  값  받기
+        val input_name: String = et_sign_up_act_name.text.toString()
+        val input_pw: String = et_sign_up_act_pw.text.toString()
+        val input_email: String = et_sign_up_act_email.text.toString()
+        val input_part: String = et_sign_up_act_part.text.toString()
+
+        //Json  형식의  객체  만들기
+        var jsonObject = JSONObject()
+        jsonObject.put("name", input_name)
+        jsonObject.put("email", input_email)
+        jsonObject.put("password", input_pw)
+        jsonObject.put("part", input_part)
+
+        //Gson  라이브러리의  Json  Parser 을  통해  객체를  Json 으로 !
+        val gsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
+        val postSignUpResponse: Call<PostSignUpResponse> =
+            networkService.postSignUpResponse("application/json", gsonObject)
+
+        postSignUpResponse.enqueue(object : Callback<PostSignUpResponse> {
+            override fun onFailure(call: Call<PostSignUpResponse>, t: Throwable) {
+                Log.i("TEST::", "회원가입실패")
+                Log.e("sign  up  fail", t.toString())
+            }
+
+            // 통신  성공  시  수행되는  메소드
+            override fun onResponse(call: Call<PostSignUpResponse>, response: Response<PostSignUpResponse>) {
+
+                if (response.isSuccessful) {
+                    Log.i("TEST::", "회원가입성공")
+                    toast(response.body()!!.message)
+                    finish()
+                }
+            }
+        })
+    }
+    */
 
     @Throws(IllegalArgumentException::class, SecurityException::class, IllegalStateException::class, IOException::class)
     fun play() {

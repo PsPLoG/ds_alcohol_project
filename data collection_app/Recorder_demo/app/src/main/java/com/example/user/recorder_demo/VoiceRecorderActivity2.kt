@@ -29,11 +29,8 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
     var user_age : String? = null
     var user_gender : String? = null
     var user_alchol : String? = null
+    var user_today : String? = null
 
-    //현재시간
-    var formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
-    var cal = Calendar.getInstance()
-    var today: String? = formatter.format(cal.getTime())
 
 
 
@@ -59,7 +56,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
             user_age = intent.getStringExtra("In_age")
             user_gender = intent.getStringExtra("In_gender")
             user_alchol = intent.getStringExtra("In_alchol")
-
+            user_today = intent.getStringExtra("In_today")
 
 
               // Toast.makeText(this, user_age + user_alchol + user_gender + user_name, Toast.LENGTH_SHORT).show()
@@ -93,7 +90,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
 
 
         //파일위치는 내파일/내장메모리/myrecording.3gp
-        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "second" + ".3gp"
+        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "second" + ".3gp"
         myAudioRecorder = MediaRecorder()
         myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
         myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -105,7 +102,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
     fun start() {
         try {
             //재시작했을때를 위해 한번 더 시도
-            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  today + "second" + ".3gp"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "second" + ".3gp"
             myAudioRecorder = MediaRecorder()
             myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
             myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -160,6 +157,7 @@ class VoiceRecorderActivity2 : AppCompatActivity() {
         resultIntent.putExtra("In_age", user_age)
         resultIntent.putExtra("In_gender", user_gender)
         resultIntent.putExtra("In_alchol", user_alchol)
+        resultIntent.putExtra("In_today", user_today)
         startActivity(resultIntent)
     }
 

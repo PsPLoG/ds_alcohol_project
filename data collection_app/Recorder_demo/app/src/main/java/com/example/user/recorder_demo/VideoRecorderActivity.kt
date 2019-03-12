@@ -40,11 +40,7 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
     var user_age : String? = null
     var user_gender : String? = null
     var user_alchol : String? = null
-
-    //현재시간
-    var formatter = SimpleDateFormat("yyyy-MM-dd HH:mm")
-    var cal = Calendar.getInstance()
-    var today: String? = formatter.format(cal.getTime())
+    var user_today : String? = null
 
 
     //녹화용
@@ -77,6 +73,7 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
             user_age = intent.getStringExtra("In_age")
             user_gender = intent.getStringExtra("In_gender")
             user_alchol = intent.getStringExtra("In_alchol")
+            user_today = intent.getStringExtra("In_today")
 
         } else {
             Toast.makeText(this, "온전한 정보가 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
@@ -216,13 +213,14 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
             resultIntent.putExtra("In_age", user_age)
             resultIntent.putExtra("In_gender", user_gender)
             resultIntent.putExtra("In_alchol", user_alchol)
+            resultIntent.putExtra("in_today", user_today)
             startActivity(resultIntent)
         }
     }
 
     private fun createFilename(): String {
         return Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
-            today + ".mp4"
+            user_today + ".mp4"
     }
 
     override fun surfaceChanged(
