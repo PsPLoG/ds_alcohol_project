@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.support.v4.app.ActivityCompat.startActivityForResult
@@ -43,6 +44,9 @@ class WriteActivity : AppCompatActivity() {
     private var mVoice2: MultipartBody.Part? = null
     private var mVoice3: MultipartBody.Part? = null
 
+    private var mnull: MultipartBody.Part? = null
+
+
 
 
     val networkService: NetworkService by lazy {
@@ -72,7 +76,7 @@ class WriteActivity : AppCompatActivity() {
             Toast.makeText(this, "온전한 정보가 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
         }
 
-       // getWriteBoardResponse()
+        getWriteBoardResponse()
     }
 
 
@@ -85,11 +89,10 @@ class WriteActivity : AppCompatActivity() {
 
 
         //보이스파일1
-        val voice_file1 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "first" + ".3gp")
+        val voice_file1 = File(Environment.getExternalStorageDirectory().absolutePath +  "/Download/round-orange-sign-with-word-test-Download-Royalty-free-Vector-File-EPS-141803.jpg")
+        val byteArrayOutputStream = ByteArrayOutputStream()
         val voice_Body1 = RequestBody.create(
-            MediaType.parse("audio/3gp"),
-            voice_file1
-        ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
+            MediaType.parse("multipart/form-data"),voice_file1)
         mVoice1 = MultipartBody.Part.createFormData(
             "voicefile1",
             voice_file1.name,
@@ -97,10 +100,10 @@ class WriteActivity : AppCompatActivity() {
         )
 
 
-        //보이스파일1
+        //보이스파일2
         val voice_file2 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "second" + ".3gp")
         val voice_Body2 = RequestBody.create(
-            MediaType.parse("audio/3gp"),
+            MediaType.parse("image/jpg"),
             voice_file2
         ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
         mVoice2 = MultipartBody.Part.createFormData(
@@ -113,7 +116,7 @@ class WriteActivity : AppCompatActivity() {
         //보이스파일1
         val voice_file3 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "third" + ".3gp")
         val voice_Body3 = RequestBody.create(
-            MediaType.parse("audio/3gp"),
+            MediaType.parse("image/jpg"),
             voice_file3
         ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
         mVoice3 = MultipartBody.Part.createFormData(
@@ -136,7 +139,7 @@ class WriteActivity : AppCompatActivity() {
             photoBody
         )
 
-        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mVoice2, mVoice3, mImage )
+        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mnull, mnull, mnull )
 
             postSendFileResponse.enqueue(object : Callback<PostSendFileResponse> {
             override fun onFailure(call: Call<PostSendFileResponse>, t: Throwable) {
@@ -146,6 +149,8 @@ class WriteActivity : AppCompatActivity() {
             override fun onResponse(call: Call<PostSendFileResponse>, response: Response<PostSendFileResponse>) {
                 if (response.isSuccessful) {
                     toast(response.body()!!.message)
+                    Log.i("TEST",response.body()!!.message)
+                    Log.i("TEST",response.body()!!.status)
                     finish ()
                 }
             }

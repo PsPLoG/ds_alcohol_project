@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.RECORD_VIDEO"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera2"
                   android:required="true"/>
@@ -19,7 +22,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".WriteActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -38,7 +41,7 @@
         </activity>
         <activity android:name=".ImageCaptureActivity1">
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".WriteActivity">
         </activity>
     </application>
 

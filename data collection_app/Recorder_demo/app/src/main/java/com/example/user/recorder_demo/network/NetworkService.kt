@@ -31,7 +31,7 @@ interface NetworkService {
 
     //파일 보내기
     @Multipart
-    @POST("/users")
+    @POST("/users/save")
     fun postSendFileResponse(
         @Header("Authorization") token : String,
         @Part("name") name : RequestBody,

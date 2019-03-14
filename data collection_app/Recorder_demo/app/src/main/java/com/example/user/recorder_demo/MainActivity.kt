@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private var permissionToWriteAccepted = false
     private var permissionToCameraAccepted = false
     private var permissionToReadAccepted = false
+    private var permissionToInternetAccepted = false
     private var permissionToCamera2Accepted = false
     private var permissionToMountAccepted = false
    // private var permissionToHardwareCameraAccepted = false
@@ -39,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         "android.permission.RECORD_AUDIO",
         "android.permission.WRITE_EXTERNAL_STORAGE",
         "android.permission.CAMERA",
-        "android.permission.READ_EXTERNAL_STORAGE"
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.INTERNET"
         //"android.hardware.camera2" ,
         //"android.permission.MOUNT_UNMOUNT"
         )
@@ -137,6 +139,7 @@ class MainActivity : AppCompatActivity() {
                 permissionToWriteAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED
                 permissionToCameraAccepted = grantResults[2] == PackageManager.PERMISSION_GRANTED
                 permissionToReadAccepted  = grantResults[3] == PackageManager.PERMISSION_GRANTED
+                permissionToInternetAccepted = grantResults[4] == PackageManager.PERMISSION_GRANTED
                // permissionToCamera2Accepted = grantResults[4] == PackageManager.PERMISSION_GRANTED
                // permissionToMountAccepted = grantResults[4] == PackageManager.PERMISSION_GRANTED
                 //permissionToHardwareCameraAccepted = grantResults[4] == PackageManager.PERMISSION_GRANTED
@@ -164,6 +167,11 @@ class MainActivity : AppCompatActivity() {
         if (!permissionToReadAccepted )
         {
             Log.i(TAG, "읽기 허가 에러")
+            super@MainActivity.finish()
+        }
+        if (!permissionToInternetAccepted )
+        {
+            Log.i(TAG, "인터녰 허가 에러")
             super@MainActivity.finish()
         }
         /*if (!permissionToCamera2Accepted)

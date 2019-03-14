@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class  ApplicationController  :  Application()  {
-    private  val  baseURL  =  "127.0.0.1:8080/users/save"
+    private  val  baseURL  =  "http://52.78.34.164:8080/"
     lateinit  var  networkService : NetworkService
 
     companion  object  {
@@ -17,7 +17,7 @@ class  ApplicationController  :  Application()  {
     override  fun  onCreate ()  {
         super .onCreate()
         instance  =  this
-        //buildNetWork()
+        buildNetWork()
     }
 
     fun  buildNetWork ()  {
