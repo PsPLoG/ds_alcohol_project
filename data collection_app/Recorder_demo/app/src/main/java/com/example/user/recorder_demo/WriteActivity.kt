@@ -89,8 +89,7 @@ class WriteActivity : AppCompatActivity() {
 
 
         //보이스파일1
-        val voice_file1 = File(Environment.getExternalStorageDirectory().absolutePath +  "/Download/round-orange-sign-with-word-test-Download-Royalty-free-Vector-File-EPS-141803.jpg")
-        val byteArrayOutputStream = ByteArrayOutputStream()
+        val voice_file1 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "first" + ".3gp")
         val voice_Body1 = RequestBody.create(
             MediaType.parse("multipart/form-data"),voice_file1)
         mVoice1 = MultipartBody.Part.createFormData(
@@ -99,11 +98,13 @@ class WriteActivity : AppCompatActivity() {
             voice_Body1
         )
 
-
+//        val file : File = File(imageURI)
+//        val requestfile : RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+//        val data : MultipartBody.Part = MultipartBody.Part.createFormData("photo", file. name , requestfile)
         //보이스파일2
         val voice_file2 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "second" + ".3gp")
         val voice_Body2 = RequestBody.create(
-            MediaType.parse("image/jpg"),
+            MediaType.parse("multipart/form-data"),
             voice_file2
         ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
         mVoice2 = MultipartBody.Part.createFormData(
@@ -113,7 +114,7 @@ class WriteActivity : AppCompatActivity() {
         )
 
 
-        //보이스파일1
+        //보이스파일3
         val voice_file3 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "third" + ".3gp")
         val voice_Body3 = RequestBody.create(
             MediaType.parse("image/jpg"),
@@ -139,7 +140,7 @@ class WriteActivity : AppCompatActivity() {
             photoBody
         )
 
-        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mnull, mnull, mnull )
+        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mVoice2, mVoice3, mImage )
 
             postSendFileResponse.enqueue(object : Callback<PostSendFileResponse> {
             override fun onFailure(call: Call<PostSendFileResponse>, t: Throwable) {
@@ -148,7 +149,7 @@ class WriteActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<PostSendFileResponse>, response: Response<PostSendFileResponse>) {
                 if (response.isSuccessful) {
-                    toast(response.body()!!.message)
+                    //toast(response.body()!!.message)
                     Log.i("TEST",response.body()!!.message)
                     Log.i("TEST",response.body()!!.status)
                     finish ()

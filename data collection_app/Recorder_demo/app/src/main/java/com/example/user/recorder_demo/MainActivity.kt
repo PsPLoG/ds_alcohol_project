@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             ,"42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67"
             ,"68","69","70")
         val spinner_gender_String = arrayOf("남자", "여자")
-        val spinner_alchol_String = arrayOf("정상" ,"취기_하" , "취기_중", "취기_상")
+        //val spinner_alchol_String = arrayOf("정상" ,"취기_하" , "취기_중", "취기_상")
 
 
 
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         //배열을 스피너에 연결
         spinner_age.adapter =  ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spinner_age_String)
         spinner_gender.adapter =  ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spinner_gender_String)
-        spinner_alchol.adapter =  ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spinner_alchol_String)
+        //spinner_alchol.adapter =  ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,spinner_alchol_String)
 
         /////클릭시
         spinner_age.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        spinner_alchol.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        /*spinner_alchol.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 Toast.makeText(this@MainActivity, spinner_alchol_String[position], Toast.LENGTH_LONG)
             }
-        }
+        }*/
         /////
 
 
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                 resultIntent.putExtra("In_name", editText_name.text.toString())
                 resultIntent.putExtra("In_age", spinner_age.selectedItem.toString())
                 resultIntent.putExtra("In_gender", spinner_gender.selectedItem.toString())
-                resultIntent.putExtra("In_alchol", spinner_alchol.selectedItem.toString())
+                resultIntent.putExtra("In_alchol", spinner_alchol.text.toString())
                 resultIntent.putExtra("In_today", today)
                 startActivity(resultIntent)
             }
