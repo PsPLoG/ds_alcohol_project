@@ -59,6 +59,17 @@
             app:layout_constraintBottom_toTopOf="@+id/textView2" app:layout_constraintVertical_bias="0.277"
             android:textAlignment="center" android:visibility="invisible"
             android:textColor="@android:color/background_dark"/>
+    <TextView
+            android:text="저는 술을 마시지 않앗습니다. 음주운전을 하지 않겠습니다."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/text_forth" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="40sp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2" app:layout_constraintVertical_bias="0.277"
+            android:textAlignment="center" android:visibility="invisible"
+            android:textColor="@android:color/background_dark"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

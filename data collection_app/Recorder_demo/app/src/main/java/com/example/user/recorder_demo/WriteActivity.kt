@@ -1,6 +1,7 @@
 package com.example.user.recorder_demo
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -25,6 +26,7 @@ import retrofit2.http.Header
 import retrofit2.http.Part
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStream
 
 class WriteActivity : AppCompatActivity() {
@@ -43,6 +45,11 @@ class WriteActivity : AppCompatActivity() {
     private var mVoice1: MultipartBody.Part? = null
     private var mVoice2: MultipartBody.Part? = null
     private var mVoice3: MultipartBody.Part? = null
+
+    private var mLongVoice1: MultipartBody.Part? = null
+    private var mLongVoice2: MultipartBody.Part? = null
+    private var mLongVoice3: MultipartBody.Part? = null
+
 
     private var mnull: MultipartBody.Part? = null
 
@@ -77,7 +84,29 @@ class WriteActivity : AppCompatActivity() {
         }
 
         getWriteBoardResponse()
+
     }
+/*
+    public static String saveBitmapToJpeg(Context context, Bitmap bitmap){
+        File storage = context.getCacheDir(); // 이 부분이 임시파일 저장 경로
+        String fileName = getRandomString(10) + ".jpg"; // 파일이름은 마음대로!
+        File tempFile = new File(storage,fileName);
+        try{
+            tempFile.createNewFile(); // 파일을 생성해주
+            FileOutputStream out = new FileOutputStream(tempFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90 , out); // 넘거 받은 bitmap을 jpeg(손실압축)으로 저장해줌
+            out.close(); // 마무리로 닫아줍니다.
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tempFile.getAbsolutePath(); // 임시파일 저장경로를 리턴해주면 끝!
+    }*/
+
+
+
+
 
 
     private fun getWriteBoardResponse() {
@@ -117,7 +146,7 @@ class WriteActivity : AppCompatActivity() {
         //보이스파일3
         val voice_file3 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "third" + ".3gp")
         val voice_Body3 = RequestBody.create(
-            MediaType.parse("image/jpg"),
+            MediaType.parse("multipart/form-data"),
             voice_file3
         ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
         mVoice3 = MultipartBody.Part.createFormData(
@@ -125,13 +154,23 @@ class WriteActivity : AppCompatActivity() {
             voice_file3.name,
             voice_Body3
         )
+/*
+        //롱 보이스파일1
+        val long_voice_file1 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "Long_first" + ".3gp")
+        val long_voice_Body1 = RequestBody.create(
+            MediaType.parse("multipart/form-data"),
+            long_voice_file1
+        ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
+        mVoice3 = MultipartBody.Part.createFormData(
+            "voicefile3",
+            voice_file3.name,
+            voice_Body3
+        )*/
 
         //이미지파일
-        val image_file = File(Environment.getExternalStorageDirectory().toString() + "/dcim/al/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
-                user_today + ".jpg")
-
+        val image_file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" + user_today + ".jpg")
         val photoBody = RequestBody.create(
-            MediaType.parse("image/jpg"),
+            MediaType.parse("multipart/form-data"),
             image_file
         ) //첫번째 매개변수 String을 꼭! 꼭! 서버 API에 명시된 이름으로 넣어주세요!!!
         mImage = MultipartBody.Part.createFormData(
@@ -140,7 +179,7 @@ class WriteActivity : AppCompatActivity() {
             photoBody
         )
 
-        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mVoice2, mVoice3, mImage )
+        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mVoice2, mVoice3, mImage)
 
             postSendFileResponse.enqueue(object : Callback<PostSendFileResponse> {
             override fun onFailure(call: Call<PostSendFileResponse>, t: Throwable) {
@@ -150,9 +189,15 @@ class WriteActivity : AppCompatActivity() {
             override fun onResponse(call: Call<PostSendFileResponse>, response: Response<PostSendFileResponse>) {
                 if (response.isSuccessful) {
                     //toast(response.body()!!.message)
+                 //    text_send.text = "response.body()!!.message + " - " + response.body()!!.status;
+                    text_send.text = "서버 전송 성공" + " - " + response.body()!!.status;
+
+
                     Log.i("TEST",response.body()!!.message)
                     Log.i("TEST",response.body()!!.status)
-                    finish ()
+                    //toast( response.body()!!.message + " - " + response.body()!!.status)
+
+                   // finish ()
                 }
             }
         })

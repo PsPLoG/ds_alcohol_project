@@ -23,6 +23,7 @@ import android.net.Uri
 import android.os.*
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
+import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.util.Size
@@ -37,6 +38,7 @@ import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
+import java.lang.reflect.Method
 import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.*
@@ -241,7 +243,9 @@ class ImageCaptureActivity : AppCompatActivity() {
             dir.mkdir()
             //파일이름 저장하는 부분이고 save()로가면 save에서 파일스트림으로 저장하는데 왜저장안됨?
 
-            val file = File(Environment.getExternalStorageDirectory().toString() + "/dcim/al/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
+          //  val file = File(Environment.getExternalStorageDirectory().toString() + "/dcim/al/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
+           //         user_today + ".jpg")
+            val file = File(Environment.getExternalStorageDirectory().toString() + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
                     user_today + ".jpg")
 
             val readerListener = object : ImageReader.OnImageAvailableListener {
@@ -262,6 +266,18 @@ class ImageCaptureActivity : AppCompatActivity() {
                     }
                 }
 
+                //
+                /*
+                if(Build.VERSION.SDK_INT>=24){
+                    try{
+                        Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                        m.invoke(null);
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                */
+
                 //여기서 저장. 근데 안됨;
                 @Throws(IOException::class)
                 private fun save(bytes: ByteArray) {
@@ -269,7 +285,10 @@ class ImageCaptureActivity : AppCompatActivity() {
                     try {
                         output = FileOutputStream(file)
                         output.write(bytes)
-                        applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory()+ "/dcim/al")))
+                       // applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory()+ "/dcim/al")))
+                           applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory().toString())))
+                       // intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                       // applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse(FileProvider.getUriForFile(applicationContext, BuildConfig.APPLICATION_ID + ".provider" , file).toString())))
                     } catch(e : Exception )
                     {
                         e.printStackTrace()
@@ -433,38 +452,7 @@ class ImageCaptureActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    /*
-        //카메라 화면에 가이드라인
-        private fun Draw() {
-            val canvas = texture.lockCanvas()
 
-            //디바이스 길이
-            deviceWidth = getScreenWidth()
-            deviceHeight = getScreenHeight()
-
-            val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-            paint.style = Paint.Style.STROKE
-            paint.color = Color.GREEN
-            paint.strokeWidth = 5f
-
-            RectLeft = (deviceWidth / 2 + 400).toFloat()
-            RectRight = (deviceWidth / 2 - 400).toFloat()
-            RectTop = (deviceHeight / 2 + 200).toFloat()
-            RectBottom = (deviceHeight / 2 - 600).toFloat()
-            val rec = Rect(RectLeft.toInt(), RectTop.toInt(), RectRight.toInt(), RectBottom.toInt())
-            canvas.drawRect(rec, paint)
-            texture.unlockCanvasAndPost(canvas)
-        }
-
-        fun getScreenWidth(): Int {
-            return Resources.getSystem().displayMetrics.widthPixels
-        }
-
-        fun getScreenHeight(): Int {
-            return Resources.getSystem().displayMetrics.heightPixels
-        }
-
-    */
 
     //2월11일, 카메라 돌아가는거 고쳤다.
     companion object {
