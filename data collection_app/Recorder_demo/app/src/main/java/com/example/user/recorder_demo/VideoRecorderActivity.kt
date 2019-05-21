@@ -227,7 +227,8 @@ class VideoRecorderActivity : Activity(), SurfaceHolder.Callback {
         holder: SurfaceHolder, format: Int, width: Int,
         height: Int
     ) {
-        if (previewing) {
+        if
+                (previewing) {
             camera!!.stopPreview()
             previewing = false
         }

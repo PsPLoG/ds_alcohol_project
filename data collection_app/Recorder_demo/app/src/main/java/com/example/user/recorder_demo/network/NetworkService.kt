@@ -42,8 +42,30 @@ interface NetworkService {
         @Part voicefile1 : MultipartBody.Part?,
         @Part voicefile2 : MultipartBody.Part?,
         @Part voicefile3 : MultipartBody.Part?,
+        @Part voicefile4 : MultipartBody.Part?,
+        @Part voicefile5 : MultipartBody.Part?,
+        @Part voicefile6 : MultipartBody.Part?,
         @Part videofile : MultipartBody.Part?
     ) : Call<PostSendFileResponse>
+
+    //회원가입
+    @Multipart
+    @POST("/users/saveUser")
+    fun postSignUpResponse(
+        @Header("Authorization") token : String,
+        @Part("ID") ID : RequestBody,
+        @Part("password") password : RequestBody,
+        @Part("name") name : RequestBody,
+        @Part("gender") gender : RequestBody,
+        @Part("birth") birth : RequestBody,
+        @Part("phone") phone : RequestBody,
+        @Part("email") email : RequestBody,
+
+        @Part voiceFile1 : MultipartBody.Part?,
+    @Part voiceFile2 : MultipartBody.Part?,
+    @Part voiceFile3 : MultipartBody.Part?,
+    @Part imageFile : MultipartBody.Part?
+    ) : Call<PostSignUpResponse>
 
 
 }

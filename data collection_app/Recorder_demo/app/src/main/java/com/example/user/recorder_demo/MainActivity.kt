@@ -110,9 +110,13 @@ class MainActivity : AppCompatActivity() {
 
         ///버튼 클릭시 넘겨주는 파트, 동시에 값도 넘겨줌,  이름 입력이 그대로 이름 입력이면 이름입력해달라고할거임
         input_information_button.setOnClickListener {
-            if(editText_name.text.toString() == "이름입력")
+            if(editText_name.text.toString() == "")
             {
                 Toast.makeText(this@MainActivity, "이름을 입력해주세요.", Toast.LENGTH_LONG).show()
+            }
+            else if(spinner_alchol.text.toString() == "" )
+            {
+                Toast.makeText(this@MainActivity, "취기를 입력해주세요.", Toast.LENGTH_LONG).show()
             }
             else {
                 val resultIntent = Intent(this@MainActivity, ImageCaptureActivity::class.java) // Intent객체 생성방법
@@ -126,6 +130,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     //권한 획득
     override fun onRequestPermissionsResult(

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#855ac6"
+            android:layout_alignParentStart="true" android:layout_alignParentTop="true">
+        <TextView
+                android:text="Detail Information"
+                android:textSize="26sp"
+                android:gravity="bottom|center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView2" android:textColor="#ffffff"
+                android:layout_marginBottom="8dp"/>
+        <Button
+                android:layout_width="20dp"
+                android:layout_height="27dp" android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true" android:id="@+id/btn_add_act_cancel"
+                android:background="@drawable/narrow"
+                android:layout_alignParentTop="true"
+                android:gravity="bottom|left" android:layout_marginTop="38dp" android:layout_marginStart="9dp"
+                android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:layout_marginBottom="70dp" android:layout_marginEnd="18dp" android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp" android:layout_marginStart="18dp" android:layout_marginTop="80dp"
+                    android:background="@drawable/button_around3">
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:orientation="horizontal" android:layout_marginEnd="4dp">
+                    <RelativeLayout
+
+                            android:id="@+id/btn_add_act_go_voice"
+
+                            android:layout_width="0dp"
+
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="6"
+
+                            android:background="@drawable/button_around3">
+
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@android:drawable/ic_menu_my_calendar"
+                                android:id="@+id/imageView5" android:layout_alignParentStart="false"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentBottom="false"
+                                android:layout_alignParentTop="false"
+                                android:layout_centerHorizontal="false" android:layout_centerVertical="true"
+                                android:layout_marginLeft="8dp"/>
+                        <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:text="음성 녹음하러가기" android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="false" android:layout_marginLeft="50dp"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:orientation="horizontal" android:layout_marginTop="8dp" android:layout_marginEnd="4dp"
+                        android:background="@drawable/button_around3">
+
+
+                    <RelativeLayout
+
+                            android:id="@+id/btn_add_act_go_capture"
+
+                            android:layout_height="match_parent"
+                            android:layout_width="0dp"
+
+                            android:layout_weight="3"
+
+                            android:background="?android:selectableItemBackground">
+
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" app:srcCompat="@android:drawable/ic_menu_camera"
+                                android:id="@+id/imageView3" android:layout_alignParentStart="false"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentBottom="false"
+                                android:layout_alignParentTop="false"
+                                android:layout_centerHorizontal="false" android:layout_centerVertical="true"
+                                android:layout_marginLeft="8dp"/>
+                        <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:text="사진 찍기"
+                                android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="true"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+
+                            android:id="@+id/btn_add_act_show_album"
+
+                            android:layout_width="0dp"
+
+                            android:layout_height="match_parent"
+
+                            android:layout_weight="3"
+
+                            android:background="?android:selectableItemBackground">
+
+
+                        <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@android:drawable/ic_menu_my_calendar"
+                                android:id="@+id/imageView4" android:layout_alignParentStart="false"
+                                android:layout_alignParentEnd="false"
+                                android:layout_alignParentBottom="false"
+                                android:layout_alignParentTop="false"
+                                android:layout_centerHorizontal="false" android:layout_centerVertical="true"
+                                android:layout_marginLeft="4dp"/>
+                        <TextView
+
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+
+                                android:layout_centerInParent="true"
+
+                                android:text="앨범에서 찾기"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <RelativeLayout
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="32dp" android:layout_marginTop="4dp" android:layout_marginEnd="8dp">
+
+                    <TextView
+
+                            android:id="@+id/iv_write_act_voice"
+                            android:text="음성 경로 :"
+
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+
+                            android:scaleType="fitCenter" android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true" android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="240dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+
+                        android:layout_width="match_parent"
+
+                        android:layout_height="match_parent" android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp" android:background="@drawable/button_around3"
+                        android:layout_marginBottom="16dp" android:padding="4dp">
+
+
+                    <ImageView
+
+                            android:id="@+id/iv_write_act_choice_image"
+
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/android2"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentBottom="true" android:layout_marginBottom="0dp"
+                            android:layout_alignParentEnd="true" android:layout_marginEnd="109dp"
+                            android:layout_alignParentStart="true" android:layout_marginStart="109dp"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </ScrollView>
+    </RelativeLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:elevation="8dp" android:layout_marginBottom="16dp">
+        <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_around4"
+                android:text="추가하기" android:id="@+id/btn_add_act_complete" android:textColor="#ffffff"
+                android:textSize="24sp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

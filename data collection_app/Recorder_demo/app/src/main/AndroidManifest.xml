@@ -29,6 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterFormActivity"></activity>
         <activity android:name=".VideoRecorderActivity">
         </activity>
         <activity android:name=".VoiceRecorderActivity">
@@ -46,17 +47,6 @@
         <activity android:name=".WriteActivity">
         </activity>
 
-
-
-        <provider
-                android:name=".content_provider.GenericFileProvider"
-                android:authorities="${applicationId}.fileprovider"
-                android:exported="false"
-                android:grantUriPermissions="true">
-            <meta-data
-                    android:name="android.support.FILE_PROVIDER_PATHS"
-                    android:resource="@xml/provider_paths"/>
-        </provider>
 
     </application>
 

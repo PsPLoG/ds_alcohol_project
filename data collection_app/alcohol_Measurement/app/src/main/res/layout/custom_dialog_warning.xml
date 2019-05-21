@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:minWidth="280dip" android:layout_height="wrap_content"
+>
+
+    <LinearLayout android:orientation="vertical"
+                  android:background="@drawable/header2" android:layout_width="match_parent"
+                  android:layout_height="50dp"
+    >
+
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/warning" android:id="@+id/imageView10"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical"
+                  android:background="@drawable/center" android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="-2dp" android:layout_marginBottom="-2dp">
+
+        <TextView android:id="@+id/title"
+                  android:paddingRight="8dip" android:paddingLeft="8dip"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:text="주의사항" android:layout_gravity="center"
+                  android:layout_marginTop="8dp" android:textColor="#3344cc"/>
+        <View
+                android:layout_width="60dp"
+                android:layout_height="1dp"
+                android:background="#000000" android:id="@+id/view3" android:layout_gravity="center"
+                android:layout_marginBottom="12dp" android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/content"
+            android:orientation="horizontal" android:background="@drawable/center"
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-2dp"
+            android:layout_marginBottom="-2dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" android:padding="8dp">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" app:srcCompat="@drawable/check2"
+                        android:id="@+id/first_img" android:layout_weight="1"/>
+                <TextView android:id="@+id/message"
+                          android:padding="5dip"
+                          android:layout_width="fill_parent"
+                          android:layout_height="wrap_content" android:layout_weight="1" android:text="카메라 사진 촬영 안내"
+                          android:textColor="#3344cc"/>
+            </LinearLayout>
+            <TextView
+                    android:text="이미지 분석을 위하여 귀하의 사진을 촬영시에 조명으로 인한 빛 번짐, 혹은 그림자가 있을 경우, 사람의 얼굴이 아닌 다른 부위나 사물을 찍을 경우, 인식을 하지못하여 측정 실패의 원인이 됩니다."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView17" android:layout_marginTop="4dp"
+                    android:textColor="#3344cc"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" app:srcCompat="@drawable/check2"
+                        android:id="@+id/second_img" android:layout_weight="1"/>
+                <TextView android:id="@+id/message2"
+                          android:padding="5dip"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content" android:layout_weight="1" android:text="음성 녹음 안내"
+                          android:textColor="#3344cc"/>
+            </LinearLayout>
+            <TextView
+                    android:text="음성 분석을 위하여 귀하의 음성을 녹음시에 너무 큰 소음이나 작은 목소리는 음성 분석을 원활하게 하지못하여 측정 실패의 원인이 됩니다."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView19" android:layout_marginTop="4dp"
+                    android:textColor="#3344cc"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="vertical"
+                  android:background="@drawable/footer" android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+
+        <Button android:id="@+id/btn_warning_okay"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:singleLine="true" android:text="확인" android:textColor="#ffffff" android:textSize="24sp"
+                android:layout_marginBottom="8dp" android:background="@drawable/button_around4"
+                android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>

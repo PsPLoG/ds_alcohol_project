@@ -107,7 +107,19 @@ class WriteActivity : AppCompatActivity() {
 
 
 
+    private fun make_MultiPartBody(path : String, Sever_in_name : String) : MultipartBody.Part?
+    {
+        val file = File(path)
+        val body = RequestBody.create(
+            MediaType.parse("multipart/form-data"), file)
+        val multipartBody = MultipartBody.Part.createFormData(
+            Sever_in_name,
+            file.name,
+            body
+        )
 
+        return multipartBody
+    }
 
     private fun getWriteBoardResponse() {
         val token = SharedPreferenceController.getAuthorization(this)
@@ -116,7 +128,30 @@ class WriteActivity : AppCompatActivity() {
         var age : Int = user_age?.toInt()!!
         var status = RequestBody.create(MediaType.parse("text/plain"), user_alchol.toString())
 
+        mVoice1 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "first" + ".wav"
+        , "voicefile1"
+            )
+        mVoice2 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "second" + ".wav"
+            , "voicefile2"
+        )
+        mVoice3 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "third" + ".wav"
+            , "voicefile3"
+        )
+        mLongVoice1 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "Long_first" + ".wav"
+            , "voicefile4"
+        )
+        mLongVoice2 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "Long_second" + ".wav"
+            , "voicefile5"
+        )
+        mLongVoice3 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "Long_third" + ".wav"
+            , "voicefile6"
+        )
+        mImage = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  ".jpg"
+            , "videofile"
+        )
 
+
+        /*
         //보이스파일1
         val voice_file1 = File(Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today +  "first" + ".3gp")
         val voice_Body1 = RequestBody.create(
@@ -178,8 +213,9 @@ class WriteActivity : AppCompatActivity() {
             image_file.name,
             photoBody
         )
+        */
 
-        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mVoice2, mVoice3, mImage)
+        val postSendFileResponse = networkService.postSendFileResponse(token, name, gender, age, status, mVoice1, mVoice2, mVoice3, mLongVoice1, mLongVoice2, mLongVoice3, mImage)
 
             postSendFileResponse.enqueue(object : Callback<PostSendFileResponse> {
             override fun onFailure(call: Call<PostSendFileResponse>, t: Throwable) {
@@ -190,7 +226,7 @@ class WriteActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     //toast(response.body()!!.message)
                  //    text_send.text = "response.body()!!.message + " - " + response.body()!!.status;
-                    text_send.text = "서버 전송 성공" + " - " + response.body()!!.status;
+                    text_send.text = "서버 전송 여부" + " - " + response.body()!!.status;
 
 
                     Log.i("TEST",response.body()!!.message)

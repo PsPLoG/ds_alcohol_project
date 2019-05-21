@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteY="25dp">
+
+
+    <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:background="#00a2e8"
+            android:id="@+id/relativeLayout8" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="0dp" android:layout_height="0dp"
+                    android:orientation="vertical"
+
+                    android:layout_margin="32dp" android:background="@drawable/button_around"
+                    android:id="@+id/relativeLayout9" android:layout_marginTop="32dp" android:layout_marginBottom="32dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:background="#fafafa"
+                tools:context="com.example.user.alcohol_measurement.ResultActivity"
+                android:layout_marginTop="230dp"
+                android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
+
+            <ProgressBar
+                    android:id="@+id/circularProgressbar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:progress="0"
+                    android:layout_centerInParent="true"
+                    android:progressDrawable="@drawable/circular"
+                    android:secondaryProgress="100"
+            />
+
+            <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/whitecircle"
+                    android:layout_centerInParent="true"/>
+
+            <TextView
+                    android:id="@+id/tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="0%"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp" android:layout_alignParentEnd="false" android:layout_marginEnd="0dp"
+                    android:layout_alignParentStart="false" android:layout_marginStart="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_alignTop="@+id/circularProgressbar"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:background="#3e1e64"
+                tools:layout_editor_absoluteY="36dp">
+        </RelativeLayout>
+        <Button
+                android:background="#00000000"
+                android:drawableBottom="@drawable/drawable_left_image_nextbutton_on"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp" android:id="@+id/button_voice_next1"
+                android:visibility="invisible"
+                tools:layout_editor_absoluteY="462dp" tools:layout_editor_absoluteX="150dp"
+                android:layout_alignParentBottom="true" android:layout_marginBottom="20dp"
+                android:layout_toStartOf="@+id/button_play1" android:layout_marginEnd="22dp"
+                android:layout_toEndOf="@+id/button_start1" android:layout_marginStart="22dp"/>
+        <TextView
+                android:text="글자가 나타나면 위의 글자를 한번 씩 끊어서 총 3회 또박또박 읽어주세요."
+                android:layout_width="233dp"
+                android:layout_height="59dp" android:id="@+id/txt_recorder_3"
+                android:textAlignment="center" tools:layout_editor_absoluteY="357dp"
+                tools:layout_editor_absoluteX="76dp" android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/button_voice_next1"
+                android:gravity="center_vertical" android:layout_marginTop="16dp" android:layout_marginStart="19dp"
+                android:layout_marginEnd="13dp" android:layout_marginBottom="2dp"/>
+
+        <TextView
+                android:text="저는 술을 마시지 않았습니다. 음주운전을 하지 않겠습니다."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/text_forth"
+                android:textSize="40sp"
+                android:textAlignment="center" android:visibility="invisible"
+                android:textColor="#ffffff" tools:layout_editor_absoluteY="61dp"/>
+        <Button
+                android:background="#00000000"
+                android:drawableBottom="@drawable/drawable_left_image_start_button_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/button_start1"
+                tools:layout_editor_absoluteY="462dp" tools:layout_editor_absoluteX="8dp"
+                android:layout_alignParentBottom="true" android:layout_marginBottom="20dp"
+                android:layout_alignParentStart="true" android:layout_marginStart="12dp"/>
+
+        <Button
+                android:background="#00000000"
+                android:drawableBottom="@drawable/drawable_left_image_play_button_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:id="@+id/button_play1"
+                tools:layout_editor_absoluteY="462dp" tools:layout_editor_absoluteX="288dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp" android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

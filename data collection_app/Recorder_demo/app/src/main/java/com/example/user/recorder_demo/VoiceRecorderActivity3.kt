@@ -101,8 +101,8 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
         play!!.isEnabled = false
 
 
-        //파일위치는 내파일/내장메모리/myrecording.3gp
-        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "third" + ".3gp"
+        //파일위치는 내파일/내장메모리/myrecording.wav
+        output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "third" + ".wav"
         myAudioRecorder = MediaRecorder()
         myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
         myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)
@@ -114,7 +114,7 @@ class VoiceRecorderActivity3 : AppCompatActivity() {
     fun start() {
         try {
             //재시작했을때를 위해 한번 더 시도
-            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "third" + ".3gp"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +  user_today + "third" + ".wav"
             myAudioRecorder = MediaRecorder()
             myAudioRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
             myAudioRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP)

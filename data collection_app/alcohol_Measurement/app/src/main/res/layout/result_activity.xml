@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.user.alcohol_measurement.ResultActivity" android:padding="24dp"
+                android:background="#00a2e8">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical" android:background="@drawable/button_around3">
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="371dp" android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true">
+
+            <TextView
+                    android:text="Wait....."
+                    android:layout_width="89dp"
+                    android:layout_height="wrap_content" android:layout_alignParentEnd="true"
+                    android:id="@+id/textView4"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="24sp" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="72dp"
+                    app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.501"
+                    android:gravity="center" android:textColor="#a37ae1"/>
+            <TextView
+                    android:text="홍길동님의\n결과는"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content" android:layout_alignParentEnd="true"
+                    android:id="@+id/textView6"
+                    android:layout_alignParentStart="true"
+                    android:textSize="24sp" android:layout_above="@+id/textView4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/view" android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView4"
+                    app:layout_constraintVertical_bias="1.0" android:gravity="center" android:textColor="#a37ae1"/>
+            <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" app:srcCompat="@drawable/check2"
+                    android:id="@+id/img_result_resulto" android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="56dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" app:srcCompat="@drawable/result_x"
+                    android:id="@+id/img_result_resultx" android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="56dp"
+                    app:layout_constraintTop_toTopOf="parent" android:visibility="visible"/>
+            <View
+
+                    android:layout_width="100dp"
+                    android:layout_height="5dp"
+
+                    android:background="#33444444"
+                    android:layout_below="@+id/imageView11"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_above="@+id/textView6" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/img_result_resultx"
+                    app:layout_constraintVertical_bias="0.094"
+                    android:id="@+id/view"/>
+
+        </android.support.constraint.ConstraintLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:elevation="8dp" android:layout_marginBottom="16dp" android:layout_alignParentBottom="true"
+                android:layout_marginStart="8dp" android:layout_marginEnd="8dp">
+            <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_around4"
+                    android:text="확인" android:id="@+id/btn_result_act_complete" android:textColor="#ffffff"
+                    android:textSize="24sp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

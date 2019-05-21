@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" tools:layout_editor_absoluteY="25dp">
+
+
+    <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="520dp"
+            android:background="#fafafa"
+            tools:context="com.example.user.alcohol_measurement.ResultActivity"
+            android:id="@+id/relativeLayout3"
+    >
+
+        <ProgressBar
+                android:id="@+id/circularProgressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="0"
+                android:layout_centerInParent="true"
+                android:progressDrawable="@drawable/circular"
+                android:secondaryProgress="100"
+        />
+
+        <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/whitecircle"
+                android:layout_centerInParent="true"/>
+
+        <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0%"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp" android:layout_alignParentEnd="false" android:layout_marginEnd="0dp"
+                android:layout_alignParentStart="false" android:layout_marginStart="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="-7dp"
+        />
+
+    </RelativeLayout>
+    <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="314dp"
+            android:background="#8855cc"
+            android:id="@+id/relativeLayout" app:layout_constraintTop_toTopOf="@+id/relativeLayout3"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
+        <Button
+                android:background="@drawable/button_around6"
+                android:drawableLeft="@android:drawable/ic_lock_power_off"
+                android:text="로그아웃"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:id="@+id/btn_board_logout2" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="296dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="0dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="1.0"
+                android:textSize="16sp" android:textColor="#ffffff" android:layout_marginTop="2dp"
+                android:layout_alignParentEnd="true" android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"/>
+    </RelativeLayout>
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:orientation="vertical"
+
+            android:id="@+id/linearLayout2"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout">
+
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp" android:layout_weight="1" android:padding="0dp"
+                    android:paddingBottom="10dp">
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+
+            </RelativeLayout>
+        </LinearLayout>
+        <!-- <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            <Button
+                    android:id="@+id/button2"
+                    android:layout_weight="1" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/holo_orange_light" android:textColor="#ffffff"
+                    android:textSize="28sp" android:gravity="top" android:text="설정\n(User Setting)"
+                    android:textAllCaps="false"/>
+            <Button
+                    android:id="@+id/button3"
+                    android:text="통계\n(Statistics Result)"
+
+                    android:layout_weight="1" android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:background="@android:color/holo_orange_dark" android:gravity="top" android:textSize="28sp"
+                    android:textColor="#ffffff" android:textAllCaps="false"/>
+        </LinearLayout>-->
+    </LinearLayout>
+    <android.support.constraint.ConstraintLayout android:layout_width="0dp"
+                                                 android:layout_height="563dp"
+                                                 android:id="@+id/constraintLayout"
+                                                 app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                                                 app:layout_constraintEnd_toEndOf="parent"
+                                                 app:layout_constraintStart_toStartOf="parent"
+                                                 app:layout_constraintBottom_toBottomOf="@+id/relativeLayout">
+        <Button
+                android:id="@+id/btn_board_start2"
+                android:layout_width="260dp"
+                android:layout_height="170dp"
+                android:padding="16dp"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="28sp"
+                android:background="@drawable/button_mesure_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:text="측 정 하 기"
+                android:layout_marginBottom="100dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.37"/>
+
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:elevation="8dp" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="1.0"
+                android:layout_marginBottom="32dp" android:id="@+id/linearLayout">
+            <ImageView
+
+                    android:id="@+id/btn_board_mypage"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true" android:src="?android:attr/homeAsUpIndicator"/>
+            <ImageView
+
+                    android:id="@+id/btn_board_home"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@drawable/selector_bottom_navi_home_icon"
+                    android:clickable="true"/>
+            <ImageView
+                    android:id="@+id/btn_board_charge"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:selectableItemBackground"
+                    android:src="@drawable/selector_bottom_navi_charge_icon"
+                    android:clickable="true"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/txt_board_result" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/btn_board_start2" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="48sp"/>
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
