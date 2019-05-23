@@ -59,6 +59,8 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
 
     //잠시
     var PT : String? = "PT"
+    var PT_I : String? = "PT"
+    var gender_number : String? = null
 
     //파일
     private var mImage: MultipartBody.Part? = null
@@ -108,7 +110,13 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
         }
 
         //경로
-        PT = intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+        if(intent_gender == "남자")
+            gender_number = "0"
+        else if (intent_gender == "여자")
+            gender_number = "2"
+        PT = "a" + "_" + gender_number + "_" + intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+        PT_I = intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+
 
        // Toast.makeText(this, PT, Toast.LENGTH_SHORT).show()
         //준비준비
@@ -205,7 +213,7 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
 
         //글자다시 바꾸자
         Run.after(24000) {
-            txt_recorder_3.text = "글자가 나타나면 위의 글자를 한번 씩 끊어서 총 3회 또박또박 읽어주세요."
+            txt_recorder_3.text = "글자가 나타나면 위의 글자를\\n 한번 씩 끊어서 \\n총 3회 또박또박 읽어주세요."
         }
 
 
@@ -382,7 +390,7 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
 
         val token = SharedPreferenceController.getAuthorization(this)
 
-        mImage = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  ".jpg"
+        mImage = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT_I +  ".jpg"
             , "imageFile"
         )
         mVoice1 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  "Long_first" + ".wav"

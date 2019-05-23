@@ -35,6 +35,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
 
     //서버로 보내자
     var PT : String? = null
+    var gender_number : String? = null
 
     //초기화 및 허가
     private var myAudioRecorder: MediaRecorder? = null
@@ -91,7 +92,11 @@ class VoiceRecorderActivity : AppCompatActivity() {
         }
 
         //경로
-        PT = intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+        if(intent_gender == "남자")
+            gender_number = "0"
+        else if (intent_gender == "여자")
+            gender_number = "2"
+        PT = "a" + "_" + gender_number + "_" + intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
 
 
 
@@ -190,7 +195,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
 
         //글자다시 바꾸자
         Run.after(24000) {
-            txt_recorder_3.text = "글자가 나타나면 위의 글자를 한번 씩 끊어서 총 3회 또박또박 읽어주세요."
+            txt_recorder_3.text = "글자가 나타나면 위의 글자를\\n 한번 씩 끊어서 \\n총 3회 또박또박 읽어주세요."
         }
 
 

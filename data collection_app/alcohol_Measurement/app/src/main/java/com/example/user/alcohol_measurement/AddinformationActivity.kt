@@ -18,7 +18,6 @@ import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.addinfo_activity.*
-import kotlinx.android.synthetic.main.registerform_activity.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

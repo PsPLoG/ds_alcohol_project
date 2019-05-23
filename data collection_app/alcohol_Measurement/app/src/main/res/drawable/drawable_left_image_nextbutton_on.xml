@@ -2,7 +2,7 @@
 <layer-list
         xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-            android:drawable="@drawable/next_button_on"
+            android:drawable="@drawable/next_on"
             android:width="60dp"
             android:height="60dp"
     />

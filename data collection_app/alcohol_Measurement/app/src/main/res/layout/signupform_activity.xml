@@ -38,204 +38,259 @@
             android:layout_marginStart="16dp" android:layout_marginEnd="16dp" android:layout_marginBottom="32dp">
 
         <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/button_around10">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/button_around10" android:layout_alignParentTop="true">
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
                 <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
                     <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="ID : "
-                            android:textColor="#000000"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="ID : "
+                        android:textColor="#000000" />
+
                     <EditText
-                            android:id="@+id/et_write_act_id"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="4"
-                            android:background="@android:color/transparent"
-                            android:inputType="text"/>
+                        android:id="@+id/et_write_act_id"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:background="@android:color/transparent"
+                        android:inputType="text" />
+
                     <Button
-                            android:text="중복체크"
-                            android:layout_width="0dp"
-                            android:background="@drawable/button"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/btn_write_act_check"
-                            android:layout_weight="2"
-                            android:textColor="#FFFFFF" android:layout_marginBottom="10dp"/>
+                        android:id="@+id/btn_write_act_check"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/button"
+                        android:text="중복체크"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
+
                 <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
                     <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="PASS : "
-                            android:textColor="#000000"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="PASS : "
+                        android:textColor="#000000" />
+
                     <EditText
-                            android:id="@+id/et_write_act_pass"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@android:color/transparent"
-                            android:inputType="textPassword"/>
+                        android:id="@+id/et_write_act_pass"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@android:color/transparent"
+                        android:inputType="textPassword" />
                 </LinearLayout>
+
                 <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
                     <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="PASS CHECK : "
-                            android:textColor="#000000"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="PASS CHECK : "
+                        android:textColor="#000000" />
+
                     <EditText
-                            android:id="@+id/et_write_act_pass_check"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="5"
-                            android:background="@android:color/transparent"
-                            android:inputType="textPassword"/>
+                        android:id="@+id/et_write_act_pass_check"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:background="@android:color/transparent"
+                        android:inputType="textPassword" />
+
                     <TextView
-                            android:id="@+id/txt_write_act_pass_check"
+                        android:id="@+id/txt_write_act_pass_check"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:textColor="#aa0000ff" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="NAME : "
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/et_write_act_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@android:color/transparent"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="GENDER : "
+                        android:textColor="#000000" />
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/et_write_act_btn1"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:textColor="#aa0000ff"
-                    />
-
-                </LinearLayout>
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
-                    <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="NAME : "
-                            android:textColor="#000000"/>
-                    <EditText
-                            android:id="@+id/et_write_act_name"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@android:color/transparent"
-                            android:inputType="text"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
-                    <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="GENDER : "
-                            android:textColor="#000000"/>
-
-                    <RadioGroup
-                            android:id="@+id/radioGroup"
-                            android:orientation="horizontal"
-                            android:layout_width="0dp"
-                            android:layout_weight="6"
-                            android:layout_height="match_parent">
+                            android:drawableRight="@drawable/boy"
+                            android:paddingRight="20dp"
+                            android:text="남자" />
 
                         <RadioButton
-                                android:layout_weight="1"
-                                android:text="남자"
-                                android:id="@+id/et_write_act_btn1"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:drawableRight="@drawable/boy" android:paddingRight="20dp"/>
-
-                        <RadioButton
-                                android:layout_weight="1"
-                                android:text="여자"
-                                android:id="@+id/et_write_act_btn2"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent" android:drawableRight="@drawable/girl"
-                                android:paddingRight="20dp"/>
+                            android:id="@+id/et_write_act_btn2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableRight="@drawable/girl"
+                            android:paddingRight="20dp"
+                            android:text="여자" />
 
                     </RadioGroup>
 
 
                 </LinearLayout>
+
                 <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
                     <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="BIRTH : "
-                            android:textColor="#000000"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="BIRTH : "
+                        android:textColor="#000000" />
+
+                    <TextView
+                        android:id="@+id/et_write_act_birth"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical"
+                        android:hint="ex)1995-09-21"
+                        android:inputType="text"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn_write_act_datapick"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="2"
+                        android:background="@drawable/button"
+                        android:text="선택하기"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="PHONE : "
+                        android:textColor="#000000" />
+
                     <EditText
-                            android:id="@+id/et_write_act_birth"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@android:color/transparent"
-                            android:inputType="text" android:hint="ex)1995-09-21"/>
+                        android:id="@+id/et_write_act_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@android:color/transparent"
+                        android:hint="ex)010-0000-0000"
+                        android:inputType="text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="E-MAIL : "
+                        android:textColor="#000000" />
+
+                    <EditText
+                        android:id="@+id/et_write_act_email"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@android:color/transparent"
+                        android:hint="ex)gildong@naver.com"
+                        android:inputType="text" />
                 </LinearLayout>
                 <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="144dp">
                     <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="PHONE : "
-                            android:textColor="#000000"/>
-                    <EditText
-                            android:id="@+id/et_write_act_phone"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@android:color/transparent"
-                            android:inputType="text" android:hint="ex)010-0000-0000"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal">
-                    <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center"
-                            android:text="E-MAIL : "
-                            android:textColor="#000000"/>
-                    <EditText
-                            android:id="@+id/et_write_act_email"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@android:color/transparent"
-                            android:inputType="text" android:hint="ex)gildong@naver.com"/>
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#000000" />
                 </LinearLayout>
 
 

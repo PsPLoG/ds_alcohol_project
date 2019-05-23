@@ -9,7 +9,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import kotlinx.android.synthetic.main.registerform_activity.*
+import kotlinx.android.synthetic.main.signupform_activity.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -21,6 +21,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import android.app.DatePickerDialog
+import android.content.Context
+import android.os.Build
+import android.view.ContextThemeWrapper
+import java.util.*
+import javax.xml.datatype.DatatypeConstants.MONTHS
 
 
 class RegisterFormActivity : AppCompatActivity() {
@@ -87,10 +93,41 @@ class RegisterFormActivity : AppCompatActivity() {
         btn_write_act_check.setOnClickListener{
             ID_Checked()
         }
+        btn_write_act_datapick.setOnClickListener{
+           // Date_Pick()
+        }
+
+
 
 
 
     }
+   /* private fun Date_Pick() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        var context: Context = ContextThemeWrapper(this, android.R.style.Theme_Holo_Light_Dialog)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            // API 24 이상일 경우 시스템 기본 테마 사용
+            context = this
+        }
+        val datePickerDialog = DatePickerDialog(context, dateSetListener, year, month, day)
+        datePickerDialog.show()
+
+        val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+
+            // Display Selected date in textbox
+           et_write_act_birth.text = "" + dayOfMonth + " " + MONTHS[monthOfYear] + ", " + year
+        }, year, month, day)
+
+
+
+        *//* val customDatePicker = CustomDatePicker(this@RegisterFormActivity)
+
+        Toast.makeText(this, "dddddd", Toast.LENGTH_SHORT).show()
+        customDatePicker.callFunction()*//*
+    }*/
 
     private fun ID_Checked() {
 
