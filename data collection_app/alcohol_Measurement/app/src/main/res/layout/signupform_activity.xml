@@ -179,22 +179,22 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/et_write_act_btn1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableRight="@drawable/boy"
-                            android:paddingRight="20dp"
-                            android:text="남자" />
+                                android:id="@+id/et_write_act_btn1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawableRight="@drawable/boy"
+                                android:paddingRight="20dp"
+                                android:text="남자"/>
 
                         <RadioButton
-                            android:id="@+id/et_write_act_btn2"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableRight="@drawable/girl"
-                            android:paddingRight="20dp"
-                            android:text="여자" />
+                                android:id="@+id/et_write_act_btn2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawableRight="@drawable/girl"
+                                android:paddingRight="20dp"
+                                android:text="여자"/>
 
                     </RadioGroup>
 

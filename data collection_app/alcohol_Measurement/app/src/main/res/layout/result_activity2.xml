@@ -24,14 +24,15 @@
         >
 
             <TextView
-                    android:layout_width="163dp"
+                    android:layout_width="250dp"
                     android:layout_height="72dp" android:id="@+id/txt_result_text"
                     android:textColor="#7e46c8" android:textSize="54sp"
                     android:layout_alignBottom="@+id/outside" android:layout_alignTop="@+id/outside"
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
                     android:layout_centerInParent="true"
-                    android:gravity="center" android:layout_marginTop="1dp" android:layout_marginBottom="-1dp"/>
+                    android:gravity="center" android:layout_marginTop="1dp" android:layout_marginBottom="-1dp"
+                    android:text=""/>
             <TextView
                     android:text="음주측정 결과"
                     android:layout_width="wrap_content"

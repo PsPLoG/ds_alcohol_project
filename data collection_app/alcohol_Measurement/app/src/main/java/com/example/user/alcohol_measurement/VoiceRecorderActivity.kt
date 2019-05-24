@@ -195,7 +195,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
 
         //글자다시 바꾸자
         Run.after(24000) {
-            txt_recorder_3.text = "글자가 나타나면 위의 글자를\\n 한번 씩 끊어서 \\n총 3회 또박또박 읽어주세요."
+            txt_recorder_3.text = "글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n총 3회 또박또박 읽어주세요."
         }
 
 

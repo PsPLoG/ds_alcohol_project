@@ -25,6 +25,9 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Build
 import android.view.ContextThemeWrapper
+import android.view.View
+import android.widget.DatePicker
+import java.text.SimpleDateFormat
 import java.util.*
 import javax.xml.datatype.DatatypeConstants.MONTHS
 
@@ -54,6 +57,12 @@ class RegisterFormActivity : AppCompatActivity() {
     //
     var gender_text : String = ""
 
+
+    //DataPicker
+    var cal = Calendar.getInstance()
+    var dateSetListener : DatePickerDialog.OnDateSetListener? = null
+
+
     // lazy를 안쓰고 인스턴스 상수를 생성한다면 아래와 같은 상수 선언과 같습니다!
     // val networkService : NetworkService = ApplicationController.instance.networkService
     val networkService: NetworkService by lazy {
@@ -64,6 +73,19 @@ class RegisterFormActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signupform_activity)
+
+        //DateSetListener
+        dateSetListener = object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
+                                   dayOfMonth: Int) {
+                cal.set(Calendar.YEAR, year)
+                cal.set(Calendar.MONTH, monthOfYear)
+                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                updateDateInView()
+            }
+        }
+
+
         setOnBtnClickListener()
 
     }
@@ -94,7 +116,7 @@ class RegisterFormActivity : AppCompatActivity() {
             ID_Checked()
         }
         btn_write_act_datapick.setOnClickListener{
-           // Date_Pick()
+            Date_Pick()
         }
 
 
@@ -102,32 +124,23 @@ class RegisterFormActivity : AppCompatActivity() {
 
 
     }
-   /* private fun Date_Pick() {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        var context: Context = ContextThemeWrapper(this, android.R.style.Theme_Holo_Light_Dialog)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            // API 24 이상일 경우 시스템 기본 테마 사용
-            context = this
-        }
-        val datePickerDialog = DatePickerDialog(context, dateSetListener, year, month, day)
-        datePickerDialog.show()
+    private fun Date_Pick() {
+        // create an OnDateSetListener
+                DatePickerDialog(this@RegisterFormActivity, android.R.style.Theme_Holo_Dialog,
+                    dateSetListener,
+                    // set DatePickerDialog to point to today's date when it loads up
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH),
+                    cal.get(Calendar.DAY_OF_MONTH)).show()
+            }
 
-        val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-
-            // Display Selected date in textbox
-           et_write_act_birth.text = "" + dayOfMonth + " " + MONTHS[monthOfYear] + ", " + year
-        }, year, month, day)
+    private fun updateDateInView() {
+        val myFormat = "yyyy-MM-dd" // mention the format you need
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        et_write_act_birth!!.text = sdf.format(cal.getTime())
+    }
 
 
-
-        *//* val customDatePicker = CustomDatePicker(this@RegisterFormActivity)
-
-        Toast.makeText(this, "dddddd", Toast.LENGTH_SHORT).show()
-        customDatePicker.callFunction()*//*
-    }*/
 
     private fun ID_Checked() {
 

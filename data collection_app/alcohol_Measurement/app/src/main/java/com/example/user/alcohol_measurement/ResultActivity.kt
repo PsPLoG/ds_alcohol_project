@@ -84,15 +84,7 @@ class ResultActivity : AppCompatActivity() {
 
     fun showResultText(str : String)
     {
-        if(str == "음주")
-        {
-            txt_result_text.text = "음주"
-        }
-
-        if(str == "비음주")
-        {
-            txt_result_text.text = "비음주"
-        }
+            txt_result_text.text = str
     }
 
     //결과주세요.
