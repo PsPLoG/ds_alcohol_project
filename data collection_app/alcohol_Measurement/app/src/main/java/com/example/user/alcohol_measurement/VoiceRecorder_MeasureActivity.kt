@@ -313,6 +313,8 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
     fun run_progress()
     {
         //초기화
+        pStatus = 0
+
         mProgress.progress = 0   // Main Progress
         mProgress.secondaryProgress = 100 // Secondary Progress
         mProgress.max = 100 // Maximum Progress

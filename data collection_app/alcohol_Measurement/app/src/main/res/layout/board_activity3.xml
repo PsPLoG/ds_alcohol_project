@@ -34,7 +34,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:gravity="center" android:layout_marginBottom="64dp"
+                android:layout_height="match_parent" android:gravity="center" android:layout_marginBottom="100dp"
                 android:layout_alignParentBottom="true">
             <TextView
                     android:text="홍길동님"
