@@ -84,7 +84,14 @@ class ResultActivity : AppCompatActivity() {
 
     fun showResultText(str : String)
     {
+        if(str == "인식 불가")
+        {
+            txt_result_text.text = "재측정 요망"
+        }
+        else
+        {
             txt_result_text.text = str
+        }
     }
 
     //결과주세요.
