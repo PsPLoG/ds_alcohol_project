@@ -36,6 +36,8 @@ class AddinformationActivity : AppCompatActivity() {
     var imageURI : String? = null
 
     var PT : String? = "PT"
+    var PT_I : String? = "PT"
+    var gender_number : String? = null
 
     //인텐트 받자
     var intent_id: String? = null
@@ -92,8 +94,13 @@ class AddinformationActivity : AppCompatActivity() {
 
         }
 
-            //경로
-            PT = intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+        //경로
+        if(intent_gender == "남자")
+            gender_number = "0"
+        else if (intent_gender == "여자")
+            gender_number = "2"
+        PT = "a" + "_" + gender_number + "_" + intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+        PT_I = intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
 
     }
 
@@ -214,7 +221,7 @@ class AddinformationActivity : AppCompatActivity() {
         if(resultCode == 1)
         {
             Glide.with(this@AddinformationActivity)
-                .load(Environment.getExternalStorageDirectory().toString() + "/" + PT+ ".jpg")
+                .load(Environment.getExternalStorageDirectory().toString() + "/" + PT_I+ ".jpg")
                 .thumbnail(0.1f)
                 .into(iv_write_act_choice_image)
         }
@@ -302,7 +309,7 @@ class AddinformationActivity : AppCompatActivity() {
             else
             {
                 data = make_MultiPartBody(
-                    Environment.getExternalStorageDirectory().absolutePath + "/" + PT + ".jpg"
+                    Environment.getExternalStorageDirectory().absolutePath + "/" + PT_I + ".jpg"
                     , "imageFile"
                 )
             }
