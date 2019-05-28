@@ -443,6 +443,9 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
                 }else {
                     Log.i("TEST_Fail :: ",response.body()!!.message)
                     Log.i("TEST_Fail  :: ",response.body()!!.status)
+
+                    setResult(6)
+                    finish()
                 }
             }
         })
