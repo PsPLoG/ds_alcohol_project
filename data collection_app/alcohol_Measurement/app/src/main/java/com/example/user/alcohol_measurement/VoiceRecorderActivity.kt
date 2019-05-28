@@ -167,6 +167,8 @@ class VoiceRecorderActivity : AppCompatActivity() {
         start!!.isEnabled = false
         Toast.makeText(applicationContext, "Recording started", Toast.LENGTH_SHORT).show()
 
+
+        /*
         //24초동안 녹음을 합니다요~ 첫번째꺼
         Run.after(8000) {stop()}
 
@@ -184,13 +186,27 @@ class VoiceRecorderActivity : AppCompatActivity() {
         Run.after(17000) {light_on()}
         Run.after(17000) {start3()}
         Run.after(24000) {last_stop()}
-        Run.after(23500) {light_off()}
+        Run.after(23500) {light_off()}*/
 
+
+        Run.after(1000) {light_on()}
+        Run.after(8000) {last_stop()}
+        Run.after(8100) {next()}
+        Run.after(7500) {light_off()}
+
+
+/*
 
         //글자다시 바꾸자
         Run.after(24000) {
             txt_recorder_3.text = "글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n총 3회 또박또박 읽어주세요."
         }
+*/
+
+        //글자다시 바꾸자
+                Run.after(8000) {
+                    txt_recorder_3.text = "글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n총 3회 또박또박 읽어주세요."
+                }
 
 
 
@@ -205,6 +221,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
 
     }
 
+/*
 
     fun start2() {
         //파일위치는 내파일/내장메모리/myrecording.wav
@@ -234,6 +251,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
         myAudioRecorder!!.start()
 
     }
+*/
 
     fun last_stop() {
         myAudioRecorder!!.stop()
@@ -257,14 +275,6 @@ class VoiceRecorderActivity : AppCompatActivity() {
     {
         setResult(2)
         finish()
-        /*
-        val resultIntent = Intent(this@VoiceRecorderActivity4, WriteActivity::class.java) // Intent객체 생성방법
-        resultIntent.putExtra("In_name", user_name)
-        resultIntent.putExtra("In_age", user_age)
-        resultIntent.putExtra("In_gender", user_gender)
-        resultIntent.putExtra("In_alchol", user_alchol)
-        resultIntent.putExtra("In_today", user_today)
-        startActivity(resultIntent)*/
     }
 
 
@@ -311,9 +321,7 @@ class VoiceRecorderActivity : AppCompatActivity() {
                     tv.text = pStatus.toString() + "%"
                 })
                 try {
-                    // Sleep for 200 milliseconds.
-                    // Just to display the progress slowly
-                    Thread.sleep(240) //thread will take approx 3 seconds to finish
+                    Thread.sleep(80)
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                 }

@@ -140,6 +140,7 @@ class ImageCaptureActivity : AppCompatActivity() {
         Next_button.visibility = View.VISIBLE
         Next_button.text = "종료"
 
+
         //다음으로
         Next_button.setOnClickListener {
             finish()

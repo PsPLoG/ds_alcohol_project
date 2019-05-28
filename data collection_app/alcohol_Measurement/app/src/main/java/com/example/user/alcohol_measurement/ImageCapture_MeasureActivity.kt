@@ -165,9 +165,11 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
         takePictureButton = findViewById<View>(R.id.btn_takepicture) as Button
         assert(takePictureButton != null)
         takePictureButton!!.setOnClickListener {
+           /*
             //다음을 보여줌
             val Next_button = findViewById(R.id.button_next2) as Button
             Next_button.visibility = View.VISIBLE
+            */
             takePicture()
         }
 

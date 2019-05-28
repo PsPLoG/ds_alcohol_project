@@ -254,7 +254,7 @@ class AddinformationActivity : AppCompatActivity() {
         //녹음해온놈이라면
         if(resultCode == 2)
         {
-           iv_write_act_voice.text = "음성 파일 : " + Environment.getExternalStorageDirectory().toString() + "/" + PT + "Long_first/second/third" + ".wav"
+           iv_write_act_voice.text = "음성 파일 : " + Environment.getExternalStorageDirectory().toString() + "/" + PT + "Long_first" + ".wav"
         }
     }
 
@@ -341,10 +341,10 @@ class AddinformationActivity : AppCompatActivity() {
         mVoice1 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  "Long_first" + ".wav"
             , "voiceFile1"
         )
-        mVoice2 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT + "Long_second" + ".wav"
+        mVoice2 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT + "Long_first" + ".wav"
             , "voiceFile2"
         )
-        mVoice3 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +   "Long_third" + ".wav"
+        mVoice3 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +   "Long_first" + ".wav"
             , "voiceFile3"
         )
 

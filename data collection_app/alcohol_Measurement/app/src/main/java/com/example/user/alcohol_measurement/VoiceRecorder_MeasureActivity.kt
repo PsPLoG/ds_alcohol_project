@@ -185,7 +185,7 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
 
         start!!.isEnabled = false
         Toast.makeText(applicationContext, "Recording started", Toast.LENGTH_SHORT).show()
-
+/*
         //24초동안 녹음을 합니다요~ 첫번째꺼
         Run.after(8000) {stop()}
 
@@ -208,14 +208,22 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
         //글자다시 바꾸자
         Run.after(24000) {
             txt_recorder_3.text = "글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n총 3회 또박또박 읽어주세요."
+        }*/
+        Run.after(1000) {light_on()}
+        Run.after(8000) {last_stop()}
+        Run.after(7500) {light_off()}
+
+        //글자다시 바꾸자
+        Run.after(8100) {
+            next()
         }
 
 
 
 
 
-
     }
+/*
 
     fun stop() {
         myAudioRecorder!!.stop()
@@ -253,6 +261,7 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
         myAudioRecorder!!.start()
 
     }
+*/
 
     fun last_stop() {
         myAudioRecorder!!.stop()
@@ -328,7 +337,7 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
                 try {
                     // Sleep for 200 milliseconds.
                     // Just to display the progress slowly
-                    Thread.sleep(240) //thread will take approx 3 seconds to finish
+                    Thread.sleep(80) //thread will take approx 3 seconds to finish
                 } catch (e: InterruptedException) {
                     e.printStackTrace()
                 }
@@ -392,10 +401,10 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
         mVoice1 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  "Long_first" + ".wav"
             , "voiceFile1"
         )
-        mVoice2 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT + "Long_second" + ".wav"
+        mVoice2 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT + "Long_first" + ".wav"
             , "voiceFile2"
         )
-        mVoice3 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  "Long_third" + ".wav"
+        mVoice3 = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  "Long_first" + ".wav"
             , "voiceFile3"
         )
 
