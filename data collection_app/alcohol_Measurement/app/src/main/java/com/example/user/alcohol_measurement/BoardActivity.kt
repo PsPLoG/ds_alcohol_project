@@ -7,11 +7,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.example.user.alcohol_measurement.SharedPreferenceController.clearSPC
 import kotlinx.android.synthetic.main.board_activity3.*
+import kotlinx.android.synthetic.main.result_activity2.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import retrofit2.Call
@@ -46,6 +49,10 @@ class BoardActivity : AppCompatActivity() {
         setOnBtnClickListener() //자동 로그인
 
         //초기값 검사(파일있냐?)
+//        val alphaAni: Animation
+//
+//        alphaAni = AnimationUtils.loadAnimation(this, R.anim.transrate)
+//        imageView7.setAnimation(alphaAni)
         getInitCheckResponse()
 
         //인텐트 값 받자

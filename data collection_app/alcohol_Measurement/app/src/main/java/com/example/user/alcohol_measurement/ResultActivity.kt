@@ -10,6 +10,10 @@ import kotlinx.android.synthetic.main.result_activity2.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.view.animation.AnimationUtils
+import android.view.animation.Animation
+
+
 
 
 class ResultActivity : AppCompatActivity() {
@@ -33,6 +37,8 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.result_activity2)
 
+
+
         //인텐트 값 받자
         if (intent.hasExtra("In_id") &&
             intent.hasExtra("In_password") &&
@@ -53,7 +59,10 @@ class ResultActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "온전한 정보가 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
         }
+        val alphaAni: Animation
 
+        alphaAni = AnimationUtils.loadAnimation(this, R.anim.transrate)
+        inside.setAnimation(alphaAni)
 
         //버튼클릭
         setOnBtnClickListener()
@@ -102,13 +111,14 @@ class ResultActivity : AppCompatActivity() {
 
         postResultResponse.enqueue(object : Callback<GetResultResponse> {
             override fun onFailure(call: Call<GetResultResponse>, t: Throwable) {
+                inside.clearAnimation()
                 Log.e("TEST :: get_result fail", t.toString())
             }
             override fun onResponse(call: Call<GetResultResponse>, response: Response<GetResultResponse>) {
+                inside.clearAnimation()
                 if (response.isSuccessful) {
                     Log.i("TEST :: ",response.body()!!.message)
                     Log.i("TEST :: ",response.body()!!.status)
-
 
                     //메시지 결과에따라 텍스트에 보여줌
                     showResultText(response.body()!!.message)
