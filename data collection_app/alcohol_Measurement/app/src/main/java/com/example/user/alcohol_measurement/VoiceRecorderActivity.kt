@@ -259,10 +259,12 @@ class VoiceRecorderActivity : AppCompatActivity() {
         myAudioRecorder = null
         play!!.isEnabled = true
 
+/*
 
         //NEXT -> SEND로 이름을 바꾸어서 보여줌
         button_voice_next1.text = "BACK"
         next!!.visibility = View.VISIBLE
+*/
 
 
 
