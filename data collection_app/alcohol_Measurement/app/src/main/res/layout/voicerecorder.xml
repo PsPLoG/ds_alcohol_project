@@ -114,7 +114,7 @@
                 android:layout_marginStart="19dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="13dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
                 android:text="글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n총 3회 또박또박 읽어주세요."
                 android:textAlignment="center"
@@ -137,23 +137,21 @@
             <Button
                 android:id="@+id/button_start1"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="48dp"
+                android:layout_alignEnd="@+id/button_play1"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="12dp"
-                android:layout_marginBottom="20dp"
-                android:background="#00000000"
-                android:drawableBottom="@drawable/drawable_left_image_start_button_custom"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="462dp" />
+                android:background="#855ac6"
+                android:text="시작"
+                android:textColor="#ffffff" />
 
             <Button
+                android:visibility="invisible"
                 android:id="@+id/button_play1"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="12dp"
                 android:layout_marginBottom="20dp"
                 android:background="#00000000"
                 android:drawableBottom="@drawable/drawable_left_image_play_button_custom"

@@ -18,32 +18,26 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BoardActivity : AppCompatActivity() {
-
     var intent_id: String? = null
-    var intent_password : String? = null
-    var intent_name : String? = null
-    var intent_gender : String? = null
-    var intent_age : String? = null
-    var intent_today : String? = null
+    var intent_password: String? = null
+    var intent_name: String? = null
+    var intent_gender: String? = null
+    var intent_age: String? = null
+    var intent_today: String? = null
 
-    var intent_email : String? = null
-    var intent_phone : String? = null
+    var intent_email: String? = null
+    var intent_phone: String? = null
 
     //캔버스 핸들러
     internal var pStatus = 0
     private val handler = Handler()
     internal lateinit var tv: TextView
-    internal lateinit var mProgress : ProgressBar
+    internal lateinit var mProgress: ProgressBar
     internal lateinit var drawable: Drawable
-
-
-
 
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,31 +47,28 @@ class BoardActivity : AppCompatActivity() {
         //초기값 검사(파일있냐?)
         getInitCheckResponse()
 
-
         //인텐트 값 받자
         if (intent.hasExtra("In_id") &&
-            intent.hasExtra("In_password") &&
-            intent.hasExtra("In_name") &&
-            intent.hasExtra("In_gender") &&
-            intent.hasExtra("In_age") &&
-            intent.hasExtra("In_today") &&
-                    intent.hasExtra("In_email") &&
-                    intent.hasExtra("In_phone")
+                intent.hasExtra("In_password") &&
+                intent.hasExtra("In_name") &&
+                intent.hasExtra("In_gender") &&
+                intent.hasExtra("In_age") &&
+                intent.hasExtra("In_today") &&
+                intent.hasExtra("In_email") &&
+                intent.hasExtra("In_phone")
         ) {
-
             intent_id = intent.getStringExtra("In_id")
             intent_password = intent.getStringExtra("In_password")
             intent_name = intent.getStringExtra("In_name")
             intent_gender = intent.getStringExtra("In_gender")
             intent_age = intent.getStringExtra("In_age")
             intent_today = intent.getStringExtra("In_today")
-
             intent_email = intent.getStringExtra("In_email")
             intent_phone = intent.getStringExtra("In_phone")
 
             //Toast.makeText(this, intent_id + intent_password + intent_name + intent_gender + intent_age + intent_today, Toast.LENGTH_SHORT).show()
         } else {
-         //  Toast.makeText(this, intent_id + intent_password + intent_name + intent_gender + intent_age + intent_today, Toast.LENGTH_SHORT).show()
+            //  Toast.makeText(this, intent_id + intent_password + intent_name + intent_gender + intent_age + intent_today, Toast.LENGTH_SHORT).show()
             Toast.makeText(this, "온전한 정보가 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
         }
 
@@ -118,7 +109,7 @@ class BoardActivity : AppCompatActivity() {
 
         //주의사항
         btn_board_warning.setOnClickListener {
-                show_warning()
+            show_warning()
         }
 
         //뒤로가기
@@ -127,11 +118,9 @@ class BoardActivity : AppCompatActivity() {
         }
 
 
-
     }
 
-    fun make_Intent( intent : Intent)
-    {
+    fun make_Intent(intent: Intent) {
         intent.putExtra("In_id", intent_id)
         intent.putExtra("In_password", intent_password)
         intent.putExtra("In_name", intent_name)
@@ -141,39 +130,36 @@ class BoardActivity : AppCompatActivity() {
         intent.putExtra("In_email", intent_email)
         intent.putExtra("In_phone", intent_phone)
     }
-    fun go_Mesure_Activity()
-    {
+
+    fun go_Mesure_Activity() {
         val capture_intent = Intent(this, ImageCapture_MeasureActivity::class.java)
         make_Intent(capture_intent)
         startActivityForResult(capture_intent, 5)
     }
 
-    fun go_Addinfo_Activity() : Intent
-    {
+    fun go_Addinfo_Activity(): Intent {
         val capture_intent = Intent(this, AddinformationActivity::class.java)
         make_Intent(capture_intent)
         return capture_intent
     }
 
     //로그아웃, 다이얼로그 대화상자
-    fun id_logout()
-    {
-        var builder : AlertDialog.Builder  = AlertDialog.Builder(this)
+    fun id_logout() {
+        var builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setTitle("메시지 상자")
         builder.setMessage("로그아웃 하시겠습니까?")
-        builder.setPositiveButton("아니요") {dialog, id ->
-                    //아무것도안해요
-                }
-                builder.setNegativeButton("예") {dialog, id ->
-                    startActivity<MainActivity>()
-                    clearSPC(this)
-                    finish()
-                }
+        builder.setPositiveButton("아니요") { dialog, id ->
+            //아무것도안해요
+        }
+        builder.setNegativeButton("예") { dialog, id ->
+            startActivity<MainActivity>()
+            clearSPC(this)
+            finish()
+        }
         builder.show()
     }
 
-    fun show_warning()
-    {
+    fun show_warning() {
 
         val customDialogWarning = CustomDialogWarning(this@BoardActivity)
 
@@ -182,8 +168,7 @@ class BoardActivity : AppCompatActivity() {
         customDialogWarning.callFunction()
     }
 
-    fun show_info()
-    {
+    fun show_info() {
         val customDialogInfo = CustomDialogInfo(this@BoardActivity)
         // 커스텀 다이얼로그를 호출한다.
         // 커스텀 다이얼로그의 결과를 출력할 TextView를 매개변수로 같이 넘겨준다.
@@ -195,24 +180,21 @@ class BoardActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         //캡쳐순서
-        if(resultCode == 5)
-        {
+        if (resultCode == 5) {
             Log.i("TEST", "보이스로!")
             val record_intent = Intent(this, VoiceRecorder_MeasureActivity::class.java)
             make_Intent(record_intent)
             startActivityForResult(record_intent, 5)
         }
-    //음성 측정하고 넘어온 녀석
-    if(resultCode == 7)
-        {
+        //음성 측정하고 넘어온 녀석
+        if (resultCode == 7) {
             Log.i("TEST", "결과창으로!")
             val record_intent = Intent(this, ResultActivity::class.java)
             make_Intent(record_intent)
             startActivityForResult(record_intent, 7)
         }
-    //결과창에서 재측정 요청시
-    if(resultCode == 9)
-        {
+        //결과창에서 재측정 요청시
+        if (resultCode == 9) {
             Log.i("TEST", "이미지로!")
             go_Mesure_Activity()
         }
@@ -229,17 +211,18 @@ class BoardActivity : AppCompatActivity() {
             override fun onFailure(call: Call<GetInitCheckResponse>, t: Throwable) {
                 Log.e("TEST :: init_check fail", t.toString())
             }
+
             override fun onResponse(call: Call<GetInitCheckResponse>, response: Response<GetInitCheckResponse>) {
                 if (response.isSuccessful) {
 
-                    Log.i("TEST",response.body()!!.message)
-                    Log.i("TEST",response.body()!!.status.toString())
+                    Log.i("TEST", response.body()!!.message)
+                    Log.i("TEST", response.body()!!.status.toString())
 
                     //초기화파일없으면..
-                    if(response.body()!!.message == "파일이 없습니다.") {
-                        startActivity(go_Addinfo_Activity())
-                        finish()
-                    }
+//                    if (response.body()!!.message == "파일이 없습니다.") {
+//                        startActivity(go_Addinfo_Activity())
+//                        finish()
+//                    }
 
                 }
             }

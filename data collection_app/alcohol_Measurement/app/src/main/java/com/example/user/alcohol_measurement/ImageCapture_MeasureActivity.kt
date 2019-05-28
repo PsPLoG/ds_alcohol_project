@@ -21,12 +21,15 @@ import android.os.*
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.DisplayMetrics
 import android.util.Log
 import android.util.Size
 import android.util.SparseIntArray
 import android.view.*
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.Toast
+import org.jetbrains.anko.displayMetrics
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,37 +47,59 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
 
     protected var cameraDevice: CameraDevice? = null
     protected lateinit var cameraCaptureSessions: CameraCaptureSession
-     protected lateinit var captureRequestBuilder: CaptureRequest.Builder
+    protected lateinit var captureRequestBuilder: CaptureRequest.Builder
 
     private var imageDimension: Size? = null
-   private var mBackgroundHandler: Handler? = null
+    private var mBackgroundHandler: Handler? = null
     private var mBackgroundThread: HandlerThread? = null
 
 
     //녜트워크
-    val networkService : NetworkService by lazy{
+    val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
 
-
     //써뻐
-    var PT : String? = "PT"
+    var PT: String? = "PT"
 
     //인텐트 받아올놈들
     var intent_id: String? = null
-    var intent_password : String? = null
-    var intent_name : String? = null
-    var intent_gender : String? = null
-    var intent_age : String? = null
-    var intent_today : String? = null
+    var intent_password: String? = null
+    var intent_name: String? = null
+    var intent_gender: String? = null
+    var intent_age: String? = null
+    var intent_today: String? = null
 
+    val displayMetrics = DisplayMetrics()
+    private var DSI_height: Int? = null
+    private var DSI_width: Int? = null
+
+    private fun setAspectRatioTextureView(ResolutionWidth: Int, ResolutionHeight: Int) {
+        if (ResolutionWidth > ResolutionHeight) {
+            val newWidth = DSI_width
+            val newHeight = DSI_width!! * ResolutionWidth / ResolutionHeight
+            updateTextureViewSize(newWidth!!, newHeight)
+
+        } else {
+            val newWidth = DSI_width
+            val newHeight = DSI_width!! * ResolutionHeight / ResolutionWidth
+            updateTextureViewSize(newWidth!!, newHeight)
+        }
+
+    }
+
+    private fun updateTextureViewSize(viewWidth: Int, viewHeight: Int) {
+        Log.d(TAG, "TextureView Width : " + viewWidth + " TextureView Height : " + viewHeight);
+        textureView!!.setLayoutParams(FrameLayout.LayoutParams(viewWidth, viewHeight));
+    }
 
     internal var textureListener: TextureView.SurfaceTextureListener = object : TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
-              openCamera()
+            openCamera()
         }
 
         override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {
+
         }
 
         override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
@@ -101,17 +126,20 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.imagecapture)
 
+
+
         //인텐트 값 받자
         if (intent.hasExtra("In_id") &&
-            intent.hasExtra("In_password") &&
-            intent.hasExtra("In_name") &&
-            intent.hasExtra("In_gender") &&
-            intent.hasExtra("In_age") &&
-            intent.hasExtra("In_today") ) {
+                intent.hasExtra("In_password") &&
+                intent.hasExtra("In_name") &&
+                intent.hasExtra("In_gender") &&
+                intent.hasExtra("In_age") &&
+                intent.hasExtra("In_today")) {
 
             intent_id = intent.getStringExtra("In_id")
             intent_password = intent.getStringExtra("In_password")
@@ -127,7 +155,7 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
         }
 
         //경로
-        PT = intent_name + "_" + intent_age + "_" + intent_gender + "_" +  intent_today
+        PT = intent_name + "_" + intent_age + "_" + intent_gender + "_" + intent_today
 
 
 
@@ -140,7 +168,12 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             //다음을 보여줌
             val Next_button = findViewById(R.id.button_next2) as Button
             Next_button.visibility = View.VISIBLE
-            takePicture() }
+            takePicture()
+        }
+
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        DSI_height = displayMetrics.heightPixels
+        DSI_width = displayMetrics.widthPixels
 
 
         //버튼
@@ -185,7 +218,7 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             var jpegSizes: Array<Size>? = null
             if (characteristics != null) {
                 jpegSizes = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)!!.getOutputSizes(
-                    ImageFormat.JPEG
+                        ImageFormat.JPEG
                 )
             }
             var width = 640
@@ -207,13 +240,12 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation))
 
 
-
 //         val file = File(Environment.getExternalStorageDirectory().toString() + "/" + user_name + "_" + user_age + "_" + user_gender + "_" + user_alchol + "_" +
-  //                  user_today + ".jpg")
-            val file = File(Environment.getExternalStorageDirectory().toString() + "/" + PT+ ".jpg")
+            //                  user_today + ".jpg")
+            val file = File(Environment.getExternalStorageDirectory().toString() + "/" + PT + ".jpg")
 
 
-                    val readerListener = object : ImageReader.OnImageAvailableListener {
+            val readerListener = object : ImageReader.OnImageAvailableListener {
                 override fun onImageAvailable(reader: ImageReader) {
                     var image: Image? = null
                     try {
@@ -239,11 +271,10 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
                     try {
                         output = FileOutputStream(file)
                         output.write(bytes)
-                         applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory().toString())))
-                    } catch(e : Exception )
-                    {
+                        applicationContext.sendBroadcast(Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + Environment.getExternalStorageDirectory().toString())))
+                    } catch (e: Exception) {
                         e.printStackTrace()
-                    }finally {
+                    } finally {
                         output?.close()
                     }
                 }
@@ -254,17 +285,16 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             //캡쳐 성공후
             object : CameraCaptureSession.CaptureCallback() {
                 override fun onCaptureCompleted(
-                    session: CameraCaptureSession,
-                    request: CaptureRequest,
-                    result: TotalCaptureResult
+                        session: CameraCaptureSession,
+                        request: CaptureRequest,
+                        result: TotalCaptureResult
                 ) {
                     super.onCaptureCompleted(session, request, result)
 
                     //startForresult
                     setResult(5) //1이면 성공이라는 뜻이니까
-
-
                     Toast.makeText(this@ImageCapture_MeasureActivity, "Saved:$file", Toast.LENGTH_SHORT).show()
+                    finish()
                     createCameraPreview()
                 }
             }
@@ -291,6 +321,8 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
         try {
             val texture = textureView!!.surfaceTexture!!
             texture.setDefaultBufferSize(imageDimension!!.width, imageDimension!!.height)
+
+
             val surface = Surface(texture)
             captureRequestBuilder = cameraDevice!!.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
             captureRequestBuilder.addTarget(surface)
@@ -327,20 +359,21 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             val characteristics = manager.getCameraCharacteristics(cameraId!!)
             val map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)!!
             imageDimension = map.getOutputSizes(SurfaceTexture::class.java)[0]
+
+            setAspectRatioTextureView(imageDimension!!.getHeight(),imageDimension!!.getWidth());
             // Add permission for camera and let user grant the permission
             if (ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.CAMERA
-                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED
-            )
-            {
+                            this,
+                            Manifest.permission.CAMERA
+                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) != PackageManager.PERMISSION_GRANTED
+            ) {
                 ActivityCompat.requestPermissions(
-                    this@ImageCapture_MeasureActivity,
-                    arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                    REQUEST_CAMERA_PERMISSION
+                        this@ImageCapture_MeasureActivity,
+                        arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        REQUEST_CAMERA_PERMISSION
                 )
                 return
             }
@@ -351,7 +384,6 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
 
         Log.e(TAG, "openCamera X")
     }
-
 
 
     protected fun updatePreview() {
@@ -372,9 +404,9 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
                 // close the app
                 Toast.makeText(
-                    this@ImageCapture_MeasureActivity,
-                    "Sorry!!!, you can't use this app without granting permission",
-                    Toast.LENGTH_LONG
+                        this@ImageCapture_MeasureActivity,
+                        "Sorry!!!, you can't use this app without granting permission",
+                        Toast.LENGTH_LONG
                 ).show()
                 finish()
             }
@@ -406,7 +438,7 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
         init {
             ORIENTATIONS.append(Surface.ROTATION_0, 270)
             ORIENTATIONS.append(Surface.ROTATION_90, 0)
-            ORIENTATIONS.append(Surface.ROTATION_180,90)
+            ORIENTATIONS.append(Surface.ROTATION_180, 90)
             ORIENTATIONS.append(Surface.ROTATION_270, 180)
         }
 
@@ -433,7 +465,7 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
             })
         }*/
 
-    }
+}
 
 
 

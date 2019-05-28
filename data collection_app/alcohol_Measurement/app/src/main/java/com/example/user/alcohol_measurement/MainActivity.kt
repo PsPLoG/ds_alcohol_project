@@ -23,36 +23,25 @@ class MainActivity : AppCompatActivity() {
     var FLAG: Boolean = false
 
     //
-    val networkService : NetworkService by lazy{
+    val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
-
-
 
     //현재시간
     var formatter = SimpleDateFormat("yyyy-MM-dd_HH:mm")
     var cal = Calendar.getInstance()
     var today: String? = formatter.format(cal.getTime())
 
-
-
     //인텐트 넣어줄 놈들
-    var intent_id : String? = null
-    var intent_pw : String? = null
-    var intent_name : String? = null
-    var intent_gender : String? = null
-    var intent_age : String? = null
-    var intent_today : String? = null
-
-    var intent_birth : String? = null
-
-    var intent_email : String? = null
-    var intent_phone : String? = null
-
-
-
-
-
+    var intent_id: String? = null
+    var intent_pw: String? = null
+    var intent_name: String? = null
+    var intent_gender: String? = null
+    var intent_age: String? = null
+    var intent_today: String? = null
+    var intent_birth: String? = null
+    var intent_email: String? = null
+    var intent_phone: String? = null
 
     //권한 얻기위한 변수
     private var permissionToRecordAccepted = false
@@ -61,23 +50,21 @@ class MainActivity : AppCompatActivity() {
     private var permissionToReadAccepted = false
     private var permissionToInternetAccepted = false
 
-
     //허가 배열
     private val permissions = arrayOf(
-        "android.permission.RECORD_AUDIO",
-        "android.permission.WRITE_EXTERNAL_STORAGE",
-        "android.permission.CAMERA",
-        "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.INTERNET"
+            "android.permission.RECORD_AUDIO",
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            "android.permission.CAMERA",
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.INTERNET"
     )
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
-       /* //영훈이가해달라했떤거
-        getAResponse()*/
+        /* //영훈이가해달라했떤거
+         getAResponse()*/
 
         //처음에 권한얻어오려고 확인
         val requestCode = 200
@@ -85,23 +72,18 @@ class MainActivity : AppCompatActivity() {
             requestPermissions(permissions, requestCode)
         }
 
-
-
-
         setOnBtnClickListener() //자동 로그인, 토큰값과 아이디값,
         if (SharedPreferenceController.getAuthorization(this).isNotEmpty()) {
             //makeIntentAutoLogin()
             startActivity(makeIntentAutoLogin())
         }
-
-
     }
 
     //권한 획득
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -150,40 +132,37 @@ class MainActivity : AppCompatActivity() {
 
             //tempLoginResponse()
             //startActivity<AddinformationActivity>()
-           getLoginResponse() //임시로
+            getLoginResponse() //임시로
         }
-       button_main_goregister.setOnClickListener {
-           startActivity<RegisterFormActivity>()
+        button_main_goregister.setOnClickListener {
+            startActivity<RegisterFormActivity>()
         }
-
 
 
     }
 
-    private fun tempLoginResponse()
-    {
+    private fun tempLoginResponse() {
         val resultIntent = makeIntent()
         startActivity(resultIntent)
 
     }
 
-    private fun calcurate_age_from_birth(today : String?, birth : String?) : String?
-    {
-        val s : Int =  today!!.substring(0, 4).toInt()
-        val s2 : Int = birth!!.substring(0,4).toInt()
-         //val s2 : Int = 1995
+    private fun calcurate_age_from_birth(today: String?, birth: String?): String? {
+        val s: Int = today!!.substring(0, 4).toInt()
+        val s2: Int = birth!!.substring(0, 4).toInt()
+        //val s2 : Int = 1995
 
-        val result : String = (s - s2 + 1).toString()
+        val result: String = (s - s2 + 1).toString()
 
         //Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
         return result
     }
 
     //6개 id, pw, name, gender, age ,today
-    private  fun makeIntentAutoLogin(): Intent {
+    private fun makeIntentAutoLogin(): Intent {
         val resultIntent = Intent(this, BoardActivity::class.java) // Intent객체 생성방법
 
-        var account : com.example.user.alcohol_measurement.domain.Account = SharedPreferenceController.getAuthored_intent(this)
+        var account: com.example.user.alcohol_measurement.domain.Account = SharedPreferenceController.getAuthored_intent(this)
 
         resultIntent.putExtra("In_id", account.id)
         resultIntent.putExtra("In_password", account.pass)
@@ -201,7 +180,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //6개 id, pw, name, gender, age ,today
-    private  fun makeIntent(): Intent {
+    private fun makeIntent(): Intent {
         val resultIntent = Intent(this, BoardActivity::class.java) // Intent객체 생성방법
 
         intent_age = calcurate_age_from_birth(today, intent_birth)
@@ -227,7 +206,6 @@ class MainActivity : AppCompatActivity() {
             val input_pw = editText_main_password.text.toString()
             val jsonObject: JSONObject = JSONObject()
 
-
             //로그인 json형식 만들기
             jsonObject.put("id", input_id)
             jsonObject.put("password", input_pw)
@@ -235,28 +213,20 @@ class MainActivity : AppCompatActivity() {
             val gsonObject: JsonObject = JsonParser().parse(jsonObject.toString()) as JsonObject
             val postLogInResponse = networkService.postLoginResponse("application/json", gsonObject)
 
-
             postLogInResponse.enqueue(object : Callback<PostLogInResponse> {
                 override fun onFailure(call: Call<PostLogInResponse>, t: Throwable) {
-
                     Log.e("TEST :: Login fail", t.toString())
-
                 }
 
                 override fun onResponse(call: Call<PostLogInResponse>, response: Response<PostLogInResponse>) {
                     if (response.isSuccessful) {
-
-                        Log.i("TEST :: ",response.body()!!.message)
-                        Log.i("TEST :: ",response.body()!!.status)
-
-
-
-                        if(response.body()!!.message == "로그인 성공")
-                        {
+                        Log.i("TEST :: ", response.body()!!.message)
+                        Log.i("TEST :: ", response.body()!!.status)
+                        if (response.body()!!.message == "로그인 성공") {
                             //로그가 위에있을때 로그인실패시 튕김.
-                            Log.i("TEST :: ",response.body()!!.data.name)
-                            Log.i("TEST :: ",response.body()!!.data.gender)
-                            Log.i("TEST :: ",response.body()!!.data.birth)
+                            Log.i("TEST :: ", response.body()!!.data.name)
+                            Log.i("TEST :: ", response.body()!!.data.gender)
+                            Log.i("TEST :: ", response.body()!!.data.birth)
 
 
                             val token = response.body()!!.data.token
@@ -270,44 +240,30 @@ class MainActivity : AppCompatActivity() {
                             intent_birth = response.body()!!.data.birth
                             intent_email = response.body()!!.data.email
                             intent_phone = response.body()!!.data.phone
-
-
                             intent_age = calcurate_age_from_birth(today, intent_birth)
-
-
-
 
                             //인텐트도 저장할겁니다 내부 저장소에
                             SharedPreferenceController.setAuthored_intent(this@MainActivity,
-                                editText_main_id.text.toString(), editText_main_password.text.toString(),
-                                intent_name!!, intent_gender!!, intent_age!!, intent_email!!, intent_phone!!)
+                                    editText_main_id.text.toString(), editText_main_password.text.toString(),
+                                    intent_name!!, intent_gender!!, intent_age!!, intent_email!!, intent_phone!!)
 
-                            var account : com.example.user.alcohol_measurement.domain.Account = (SharedPreferenceController.getAuthored_intent(this@MainActivity))
+                            var account: com.example.user.alcohol_measurement.domain.Account = (SharedPreferenceController.getAuthored_intent(this@MainActivity))
 
                             //toast(account.age + "-" + account.gender + " " + account.id + " " + account.name + " " + account.age + " " + account.pass + " " + account.email
                             //        + " " + account.phone)
-
-
-
                             startActivity(makeIntent())
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(this@MainActivity, "로그인 실패", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             })
-        }
-        else
-        {
+        } else {
             Toast.makeText(this, "빈칸을 채워주세요", Toast.LENGTH_SHORT).show()
         }
 
 
     }
-
-
 
 
     /*
@@ -354,7 +310,7 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }*/
-    }
+}
 
 
 

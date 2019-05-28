@@ -1,0 +1,142 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0-alpha1.aar\e8a71d6b8f8df3d56180498adf4f1caa\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\48f4b463363ed3479aa0fc52cf045b2c\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0-alpha1.aar\5d397b3897e6c9e04c2074b207fae616\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0-alpha1.aar\dd66384ee0bbc3166becb11b8252295a\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:support-core-ui:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0-alpha1.aar\3aa15d92d7bdb9ce7eb7e5639a5b742b\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:support-core-utils:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0-alpha1.aar\be746769067be0c336a464bf01796051\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0-alpha1.aar\4369e82c1a1eb10829bce312650348de\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\loader-28.0.0-alpha1.aar\5a4fdb3e4125ca3ae41a0f010287c0c6\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:viewpager:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0-alpha1.aar\9ebc840cf135398769c5a2762061ac08\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0-alpha1.aar\e75da74115565f36f70adc8ded1c8e22\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:drawerlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0-alpha1.aar\801c9ca328aa8f82c790f32288b07656\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0-alpha1.aar\14c3481eb798a18a17343933b2fb1c97\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:customview:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\customview-28.0.0-alpha1.aar\e95122740c76f6be7a882aae21d543d0\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0-alpha1.aar\a1a910859c95983d724e3eaa2c0e45a3\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0-alpha1.aar\5da62a003d06abfe9cc645a8f7ff3b41\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:support-compat:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0-alpha1.aar\4a20cd166eaef5a50a0682ab71a100e6\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:documentfile:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0-alpha1.aar\c31228cc47106026fdc19c6a1267d543\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0-alpha1.aar\948b7b277c247127d85998188f227545\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:print:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\print-28.0.0-alpha1.aar\b1a1de2b96b9e8f97453b8e0aa5da913\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:interpolator:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0-alpha1.aar\b7eb96e4305b48bf83235f209043b943\AndroidManifest.xml:17:1-23:12
+MERGED from [com.android.support:cursoradapter:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0-alpha1.aar\bd6c0ce13ff0aa0467cc717c8f014982\AndroidManifest.xml:17:1-23:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d6a6012e8096852f6de5728631211e56\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\214e83eb56c9a8b0dc862bd1c1d35b71\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\4df5db20b4b7ed20364ca0144946c218\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\1f52551a60c4949996ceb59ef9db332b\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:3:11-31
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:1-21:12
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\48f4b463363ed3479aa0fc52cf045b2c\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\48f4b463363ed3479aa0fc52cf045b2c\AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:10:13-39
+	android:label
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:8:13-45
+	android:roundIcon
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:9:13-58
+	android:icon
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:7:13-47
+	android:allowBackup
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:6:13-39
+	android:theme
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:11:13-44
+activity#com.psplog.MainActivity
+ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:14:17-68
+	android:name
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:16:17-76
+	android:name
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0-alpha1.aar\e8a71d6b8f8df3d56180498adf4f1caa\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0-alpha1.aar\e8a71d6b8f8df3d56180498adf4f1caa\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\48f4b463363ed3479aa0fc52cf045b2c\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\48f4b463363ed3479aa0fc52cf045b2c\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0-alpha1.aar\5d397b3897e6c9e04c2074b207fae616\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-fragment:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0-alpha1.aar\5d397b3897e6c9e04c2074b207fae616\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0-alpha1.aar\dd66384ee0bbc3166becb11b8252295a\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0-alpha1.aar\dd66384ee0bbc3166becb11b8252295a\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0-alpha1.aar\3aa15d92d7bdb9ce7eb7e5639a5b742b\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0-alpha1.aar\3aa15d92d7bdb9ce7eb7e5639a5b742b\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0-alpha1.aar\be746769067be0c336a464bf01796051\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0-alpha1.aar\be746769067be0c336a464bf01796051\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0-alpha1.aar\4369e82c1a1eb10829bce312650348de\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0-alpha1.aar\4369e82c1a1eb10829bce312650348de\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\loader-28.0.0-alpha1.aar\5a4fdb3e4125ca3ae41a0f010287c0c6\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:loader:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\loader-28.0.0-alpha1.aar\5a4fdb3e4125ca3ae41a0f010287c0c6\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:viewpager:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0-alpha1.aar\9ebc840cf135398769c5a2762061ac08\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:viewpager:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0-alpha1.aar\9ebc840cf135398769c5a2762061ac08\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0-alpha1.aar\e75da74115565f36f70adc8ded1c8e22\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0-alpha1.aar\e75da74115565f36f70adc8ded1c8e22\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0-alpha1.aar\801c9ca328aa8f82c790f32288b07656\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0-alpha1.aar\801c9ca328aa8f82c790f32288b07656\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0-alpha1.aar\14c3481eb798a18a17343933b2fb1c97\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0-alpha1.aar\14c3481eb798a18a17343933b2fb1c97\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:customview:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\customview-28.0.0-alpha1.aar\e95122740c76f6be7a882aae21d543d0\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:customview:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\customview-28.0.0-alpha1.aar\e95122740c76f6be7a882aae21d543d0\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0-alpha1.aar\a1a910859c95983d724e3eaa2c0e45a3\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0-alpha1.aar\a1a910859c95983d724e3eaa2c0e45a3\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0-alpha1.aar\5da62a003d06abfe9cc645a8f7ff3b41\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0-alpha1.aar\5da62a003d06abfe9cc645a8f7ff3b41\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-compat:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0-alpha1.aar\4a20cd166eaef5a50a0682ab71a100e6\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:support-compat:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0-alpha1.aar\4a20cd166eaef5a50a0682ab71a100e6\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:documentfile:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0-alpha1.aar\c31228cc47106026fdc19c6a1267d543\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:documentfile:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0-alpha1.aar\c31228cc47106026fdc19c6a1267d543\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0-alpha1.aar\948b7b277c247127d85998188f227545\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0-alpha1.aar\948b7b277c247127d85998188f227545\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:print:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\print-28.0.0-alpha1.aar\b1a1de2b96b9e8f97453b8e0aa5da913\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:print:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\print-28.0.0-alpha1.aar\b1a1de2b96b9e8f97453b8e0aa5da913\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:interpolator:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0-alpha1.aar\b7eb96e4305b48bf83235f209043b943\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:interpolator:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0-alpha1.aar\b7eb96e4305b48bf83235f209043b943\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0-alpha1.aar\bd6c0ce13ff0aa0467cc717c8f014982\AndroidManifest.xml:21:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0-alpha1] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0-alpha1.aar\bd6c0ce13ff0aa0467cc717c8f014982\AndroidManifest.xml:21:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d6a6012e8096852f6de5728631211e56\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d6a6012e8096852f6de5728631211e56\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\214e83eb56c9a8b0dc862bd1c1d35b71\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\214e83eb56c9a8b0dc862bd1c1d35b71\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\4df5db20b4b7ed20364ca0144946c218\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\4df5db20b4b7ed20364ca0144946c218\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\1f52551a60c4949996ceb59ef9db332b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\PsPLoG\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\1f52551a60c4949996ceb59ef9db332b\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\PsPLoG\Downloads\yellowmoon\ds_alcohol\ds_alcohol_project\data collection_app\2\app\src\main\AndroidManifest.xml

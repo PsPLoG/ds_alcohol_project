@@ -78,12 +78,6 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
     internal lateinit var mProgress : ProgressBar
     internal lateinit var drawable: Drawable
 
-
-
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.voicerecorder)
