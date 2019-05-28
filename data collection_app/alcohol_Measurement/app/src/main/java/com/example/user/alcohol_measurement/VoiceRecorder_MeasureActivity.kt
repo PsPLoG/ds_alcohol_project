@@ -269,10 +269,12 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
         myAudioRecorder = null
         play!!.isEnabled = true
 
+/*
 
         //NEXT -> SEND로 이름을 바꾸어서 보여줌
         button_voice_next1.text = "RESULT"
         next!!.visibility = View.VISIBLE
+*/
 
 
 
@@ -443,6 +445,9 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
                 }else {
                     Log.i("TEST_Fail :: ",response.body()!!.message)
                     Log.i("TEST_Fail  :: ",response.body()!!.status)
+
+                    setResult(6)
+                    finish()
                 }
             }
         })
