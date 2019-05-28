@@ -47,6 +47,9 @@ class AddinformationActivity : AppCompatActivity() {
     var intent_age : String? = null
     var intent_today : String? = null
 
+    var intent_email : String? = null
+    var intent_phone : String? = null
+
 
     //파일
     private var mImage: MultipartBody.Part? = null
@@ -85,6 +88,11 @@ class AddinformationActivity : AppCompatActivity() {
             intent_gender = intent.getStringExtra("In_gender")
             intent_age = intent.getStringExtra("In_age")
             intent_today = intent.getStringExtra("In_today")
+
+            intent_email = intent.getStringExtra("In_email")
+            intent_phone = intent.getStringExtra("In_phone")
+
+
 
 
             // Toast.makeText(this, user_age + user_alchol + user_gender + user_name, Toast.LENGTH_SHORT).show()
@@ -166,6 +174,23 @@ class AddinformationActivity : AppCompatActivity() {
 
         return capture_intent
     }
+    fun goback_Board() : Intent {
+
+        val capture_intent = Intent(this, BoardActivity::class.java)
+
+        capture_intent.putExtra("In_id", intent_id)
+        capture_intent.putExtra("In_password", intent_password)
+        capture_intent.putExtra("In_name", intent_name)
+        capture_intent.putExtra("In_gender", intent_gender)
+        capture_intent.putExtra("In_age", intent_age)
+        capture_intent.putExtra("In_today", intent_today)
+        capture_intent.putExtra("In_email", intent_email)
+        capture_intent.putExtra("In_phone", intent_phone)
+
+
+        return capture_intent
+    }
+
     fun go_Addinfo_Voice() : Intent
     {
         val voice_intent = Intent(this, VoiceRecorderActivity::class.java)
@@ -337,7 +362,8 @@ class AddinformationActivity : AppCompatActivity() {
                         toast(response.body()!!.message)
                         //BoardActivity로 결과 보내기
                         setResult(Activity.RESULT_OK)
-                        startActivity<BoardActivity>()
+                        startActivity(goback_Board())
+
                         finish()
                     }
                 }

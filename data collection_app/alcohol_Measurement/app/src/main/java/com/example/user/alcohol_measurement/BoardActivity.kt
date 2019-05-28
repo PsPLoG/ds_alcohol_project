@@ -138,7 +138,8 @@ class BoardActivity : AppCompatActivity() {
         intent.putExtra("In_gender", intent_gender)
         intent.putExtra("In_age", intent_age)
         intent.putExtra("In_today", intent_today)
-
+        intent.putExtra("In_email", intent_email)
+        intent.putExtra("In_phone", intent_phone)
     }
     fun go_Mesure_Activity()
     {
