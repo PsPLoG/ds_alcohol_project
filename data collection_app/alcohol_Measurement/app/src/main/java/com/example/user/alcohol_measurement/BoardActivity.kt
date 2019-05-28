@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.example.user.alcohol_measurement.SharedPreferenceController.clearSPC
 import kotlinx.android.synthetic.main.board_activity3.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -185,6 +186,16 @@ class BoardActivity : AppCompatActivity() {
             val record_intent = Intent(this, VoiceRecorder_MeasureActivity::class.java)
             make_Intent(record_intent)
             startActivityForResult(record_intent, 5)
+        }
+        //음성 측정하고 넘어왔는데 에러!
+        if (resultCode == 6) {
+            Log.i("TEST", "result code =6, 에러 발생!")
+            Toast.makeText(this, "DB에러, 재측정 요망", Toast.LENGTH_SHORT).show()
+
+            /*
+            val record_intent = Intent(this, ResultActivity::class.java)
+            make_Intent(record_intent)
+            startActivityForResult(record_intent, 6)*/
         }
         //음성 측정하고 넘어온 녀석
         if (resultCode == 7) {

@@ -285,8 +285,7 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
     fun next()
     {
         postSaveAlchResponse()
-        setResult(7)
-        finish()
+
             }
 
 
@@ -431,13 +430,19 @@ class VoiceRecorder_MeasureActivity : AppCompatActivity() {
         postSaveAlcoholResponse.enqueue(object : Callback<PostSaveAlcoholResponse> {
             override fun onFailure(call: Call<PostSaveAlcoholResponse>, t: Throwable) {
                 Log.e("TEST :: SaveAlcohol fail", t.toString())
+                setResult(6)
+                finish()
             }
             override fun onResponse(call: Call<PostSaveAlcoholResponse>, response: Response<PostSaveAlcoholResponse>) {
                 if (response.isSuccessful) {
                     Log.i("TEST :: ",response.body()!!.message)
                     Log.i("TEST :: ",response.body()!!.status)
 
+                    setResult(7)
                     finish()
+                }else {
+                    Log.i("TEST_Fail :: ",response.body()!!.message)
+                    Log.i("TEST_Fail  :: ",response.body()!!.status)
                 }
             }
         })
