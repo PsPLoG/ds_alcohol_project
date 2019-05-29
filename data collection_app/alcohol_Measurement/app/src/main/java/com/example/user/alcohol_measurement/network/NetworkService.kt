@@ -125,6 +125,15 @@ fun postSignUpResponse(
         ) : Call<GetResultResponse>
 
 
+    //전처리된 이미지 체크
+    @Multipart
+    @POST("/users/chkImage")
+    fun postCheckImageFileResponse(
+        @Header("Authorization") token : String,
+        @Part preImageFile : MultipartBody.Part?
+
+    ) : Call<PostCheckImageFileResopnse>
+
 
 
 
