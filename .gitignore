@@ -9,5 +9,4 @@
 /build
 /captures
 .externalNativeBuild
-*.xml
 *.json
