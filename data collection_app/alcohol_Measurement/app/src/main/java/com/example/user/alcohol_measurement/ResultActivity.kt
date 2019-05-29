@@ -62,10 +62,11 @@ class ResultActivity : AppCompatActivity() {
 
         //애니메이션
         val alphaAni: Animation
-
         alphaAni = AnimationUtils.loadAnimation(this, R.anim.transrate)
         inside.setAnimation(alphaAni)
-
+        val alphaAni1: Animation
+        alphaAni1 = AnimationUtils.loadAnimation(this, R.anim.rotate)
+        inside2.setAnimation(alphaAni1)
         //버튼클릭
         setOnBtnClickListener()
 
@@ -114,10 +115,12 @@ class ResultActivity : AppCompatActivity() {
         postResultResponse.enqueue(object : Callback<GetResultResponse> {
             override fun onFailure(call: Call<GetResultResponse>, t: Throwable) {
                 inside.clearAnimation()
+                inside2.clearAnimation()
                 Log.e("TEST :: get_result fail", t.toString())
             }
             override fun onResponse(call: Call<GetResultResponse>, response: Response<GetResultResponse>) {
                 inside.clearAnimation()
+                inside2.clearAnimation()
                 if (response.isSuccessful) {
                     Log.i("TEST :: ",response.body()!!.message)
                     Log.i("TEST :: ",response.body()!!.status)

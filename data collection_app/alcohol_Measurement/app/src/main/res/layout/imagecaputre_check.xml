@@ -63,7 +63,7 @@
                     android:layout_height="match_parent">
                 <ImageView
                         android:layout_width="30dp"
-                        android:layout_height="30dp" app:srcCompat="@drAawable/check2"
+                        android:layout_height="30dp" app:srcCompat="@drawable/check2"
                         android:id="@+id/second_img" android:layout_weight="1"/>
                 <TextView android:id="@+id/message2"
                           android:padding="5dip"
