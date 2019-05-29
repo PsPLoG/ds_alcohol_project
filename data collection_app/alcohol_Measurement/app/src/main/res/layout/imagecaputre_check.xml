@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:minWidth="280dip" android:layout_height="wrap_content"
+>
+
+    <LinearLayout android:orientation="vertical"
+                  android:background="@drawable/header2" android:layout_width="match_parent"
+                  android:layout_height="50dp"
+    >
+
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:srcCompat="@drawable/image_check"
+                android:id="@+id/imageView10"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical"
+                  android:background="@drawable/center" android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="-2dp" android:layout_marginBottom="-2dp">
+
+        <TextView android:id="@+id/title"
+                  android:paddingRight="8dip" android:paddingLeft="8dip"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" android:text="이미지 확인" android:layout_gravity="center"
+                  android:layout_marginTop="8dp" android:textColor="#3344cc"/>
+        <View
+                android:layout_width="60dp"
+                android:layout_height="1dp"
+                android:background="#000000" android:id="@+id/view3" android:layout_gravity="center"
+                android:layout_marginBottom="12dp" android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/content"
+            android:orientation="horizontal" android:background="@drawable/center"
+            android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-2dp"
+            android:layout_marginBottom="-2dp">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" android:padding="8dp">
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:id="@+id/img_check_captureimage" android:layout_weight="1"
+                        android:background="#22000000" android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" app:srcCompat="@drAawable/check2"
+                        android:id="@+id/second_img" android:layout_weight="1"/>
+                <TextView android:id="@+id/message2"
+                          android:padding="5dip"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content" android:layout_weight="1" android:text="확인 안내"
+                          android:textColor="#3344cc"/>
+            </LinearLayout>
+            <TextView
+                    android:text="위의 이미지는 사용자가 촬영한 사진이 제대로 전처리 되어 인식이 되었는지 확인하는 단계입니다."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/textView19" android:layout_marginTop="4dp"
+                    android:textColor="#3344cc"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+                  android:background="@drawable/footer" android:layout_width="fill_parent"
+                  android:layout_height="wrap_content">
+
+        <Button android:id="@+id/btn_check_reMesure"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:singleLine="true" android:text="재측정" android:textColor="#ffffff" android:textSize="24sp"
+                android:background="@drawable/button_around4"
+                android:layout_gravity="center" android:layout_weight="1" android:layout_marginLeft="30dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView" android:layout_weight="6"/>
+        <Button
+                android:text="계속"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" android:id="@+id/btn_check_continue"
+                android:background="@drawable/button_around4"
+                android:textSize="24sp" android:textColor="#ffffff" android:layout_weight="1"
+                android:layout_marginRight="30dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
