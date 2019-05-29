@@ -130,7 +130,7 @@ fun postSignUpResponse(
     @POST("/users/chkImage")
     fun postCheckImageFileResponse(
         @Header("Authorization") token : String,
-        @Part imageFile : MultipartBody.Part?
+        @Part preImageFile : MultipartBody.Part?
 
     ) : Call<PostCheckImageFileResopnse>
 

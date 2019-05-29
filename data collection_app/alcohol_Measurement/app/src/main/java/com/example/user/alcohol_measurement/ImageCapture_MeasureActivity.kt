@@ -306,11 +306,12 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
                     //서버요청으로
 
                     Toast.makeText(this@ImageCapture_MeasureActivity, "Saved:$file", Toast.LENGTH_SHORT).show()
-                    postCheckImageFileResponse()
+                 //  postCheckImageFileResponse()
 
 
-                   /* setResult(5) //1이면 성공이라는 뜻이니까*/
-                    // finish()
+
+                    setResult(5) //1이면 성공이라는 뜻이니까*/
+                     finish()
 
 
 
@@ -520,7 +521,7 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
         val token = SharedPreferenceController.getAuthorization(this)
 
         mImage = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  ".jpg"
-            , "imageFile"
+            , "preImageFile"
         )
 
         val postCheckImageFileResopnse = networkService.postCheckImageFileResponse(token, mImage)

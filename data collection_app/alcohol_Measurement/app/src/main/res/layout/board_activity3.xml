@@ -289,8 +289,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="측정에 사용되는 사진이나 음성은 로컬과 서버에 저장됩니다."
-                    android:textSize="12sp" android:paddingLeft="-4dp"/>
+                    android:text="측정에 사용되는 사진, 음성은 로컬과 서버에 저장됩니다."
+                    android:textSize="12sp" android:paddingLeft="-8dp"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
