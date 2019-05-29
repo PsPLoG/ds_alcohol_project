@@ -59,6 +59,8 @@ class ResultActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "온전한 정보가 전달되지 않았습니다.", Toast.LENGTH_SHORT).show()
         }
+
+        //애니메이션
         val alphaAni: Animation
 
         alphaAni = AnimationUtils.loadAnimation(this, R.anim.transrate)

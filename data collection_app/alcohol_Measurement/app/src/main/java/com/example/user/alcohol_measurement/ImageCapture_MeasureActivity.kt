@@ -29,10 +29,14 @@ import android.view.*
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.Toast
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.jetbrains.anko.displayMetrics
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.http.Multipart
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -52,6 +56,10 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
     private var imageDimension: Size? = null
     private var mBackgroundHandler: Handler? = null
     private var mBackgroundThread: HandlerThread? = null
+
+    //보낼 파일
+    private var mImage: MultipartBody.Part? = null
+
 
 
     //녜트워크
@@ -293,10 +301,19 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
                 ) {
                     super.onCaptureCompleted(session, request, result)
 
-                    //startForresult
-                    setResult(5) //1이면 성공이라는 뜻이니까
+                    //BoardActivity로 넘기는 부분입니다!(종료함으로써 넘김)
+                    //종료하기 전에 체크 이미지를 넘겨주자( 파라미터는 경로로 하고 리턴값을 통해서 setResult를 하자!)
+                    //서버요청으로
+
                     Toast.makeText(this@ImageCapture_MeasureActivity, "Saved:$file", Toast.LENGTH_SHORT).show()
-                    finish()
+                    postCheckImageFileResponse()
+
+
+                   /* setResult(5) //1이면 성공이라는 뜻이니까*/
+                    // finish()
+
+
+
                     createCameraPreview()
                 }
             }
@@ -446,6 +463,97 @@ class ImageCapture_MeasureActivity : AppCompatActivity() {
 
         private val REQUEST_CAMERA_PERMISSION = 200
     }
+
+
+    fun image_check(url : String) {
+        val imageCheck = ImageCheck(this@ImageCapture_MeasureActivity)
+
+        imageCheck.setDialogListener(object : MyDialogListener {  // MyDialogListener 를 구현
+            override fun onContinueClicked(code: String) {
+                setDecision(code)
+
+            }
+
+            override fun onReMeasureClicked(code: String) {
+                setDecision(code)
+            }
+        })
+        // 커스텀 다이얼로그를 호출한다.
+        // 커스텀 다이얼로그의 결과를 출력할 TextView를 매개변수로 같이 넘겨준다.
+        imageCheck.callFunction(url)
+    }
+
+    fun setDecision(code : String)
+    {
+        //계속->Board->Voice
+        if(code == "continue")
+        {
+            setResult(5)
+            finish()
+        }
+        //이미지 측정화면 다시->Board->Image
+        if(code == "re")
+        {
+            setResult(3)
+            finish()
+        }
+
+    }
+
+    private fun make_MultiPartBody(path : String, Sever_in_name : String) : MultipartBody.Part?
+    {
+        val file = File(path)
+        val body = RequestBody.create(
+            MediaType.parse("multipart/form-data"), file)
+        val multipartBody = MultipartBody.Part.createFormData(
+            Sever_in_name,
+            file.name,
+            body
+        )
+
+        return multipartBody
+    }
+
+    //사진, 보이스 추가
+    private fun postCheckImageFileResponse() {
+
+        val token = SharedPreferenceController.getAuthorization(this)
+
+        mImage = make_MultiPartBody(Environment.getExternalStorageDirectory().absolutePath + "/" + PT +  ".jpg"
+            , "imageFile"
+        )
+
+        val postCheckImageFileResopnse = networkService.postCheckImageFileResponse(token, mImage)
+
+        postCheckImageFileResopnse.enqueue(object : Callback<PostCheckImageFileResopnse> {
+            override fun onFailure(call: Call<PostCheckImageFileResopnse>, t: Throwable) {
+                Log.e("TEST :: Image_check fail", t.toString())
+                setResult(6)
+                finish()
+            }
+            override fun onResponse(call: Call<PostCheckImageFileResopnse>, response: Response<PostCheckImageFileResopnse>) {
+                if (response.isSuccessful) {
+                    Log.i("TEST :: ",response.body()!!.message)
+                    Log.i("TEST :: ",response.body()!!.status)
+                    Log.i("TEST :: ", response.body()!!.data.preImage)
+
+                    if(response.body()!!.data.preImage == null)
+                    {
+                        Log.i("TEST :: ", "preImage가 없음")
+                        //오류니까
+
+                        setResult(6)
+                        finish()
+                    }
+                    else {
+                        image_check(response.body()!!.data.preImage)
+                        Log.i("TEST :: ", "preImage가 있음")
+                    }
+                    }
+            }
+        })
+    }
+
 
 /*
     private fun getImageUpResponse() {

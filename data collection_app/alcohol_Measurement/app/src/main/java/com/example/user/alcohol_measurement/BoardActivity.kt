@@ -20,6 +20,8 @@ import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class BoardActivity : AppCompatActivity() {
     var intent_id: String? = null
@@ -42,6 +44,12 @@ class BoardActivity : AppCompatActivity() {
     val networkService: NetworkService by lazy {
         ApplicationController.instance.networkService
     }
+
+    //현재시간
+    var formatter = SimpleDateFormat("yyyy-MM-dd_HH:mm:ss")
+    var cal = Calendar.getInstance()
+    var today: String? = formatter.format(cal.getTime())
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +78,8 @@ class BoardActivity : AppCompatActivity() {
             intent_name = intent.getStringExtra("In_name")
             intent_gender = intent.getStringExtra("In_gender")
             intent_age = intent.getStringExtra("In_age")
-            intent_today = intent.getStringExtra("In_today")
+            intent_today = today
+            /*intent_today = intent.getStringExtra("In_today")*/
             intent_email = intent.getStringExtra("In_email")
             intent_phone = intent.getStringExtra("In_phone")
 
@@ -129,6 +138,7 @@ class BoardActivity : AppCompatActivity() {
     }
 
     fun make_Intent(intent: Intent) {
+
         intent.putExtra("In_id", intent_id)
         intent.putExtra("In_password", intent_password)
         intent.putExtra("In_name", intent_name)
@@ -187,6 +197,17 @@ class BoardActivity : AppCompatActivity() {
     //startActivityForResult를 통해 실행한 엑티비티에 대한 callback을 처리하는 메소드입니다!
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode == 3){
+            Log.i("TEST", "이미지 체크에서 재측정 요구")
+
+            //현재시간 갱신
+            cal = Calendar.getInstance()
+            intent_today  = formatter.format(cal.getTime())
+
+            go_Mesure_Activity()
+        }
+
         //캡쳐순서
         if (resultCode == 5) {
             Log.i("TEST", "보이스로!")
@@ -214,6 +235,11 @@ class BoardActivity : AppCompatActivity() {
         //결과창에서 재측정 요청시
         if (resultCode == 9) {
             Log.i("TEST", "이미지로!")
+
+            //현재시간 갱신
+            cal = Calendar.getInstance()
+            intent_today  = formatter.format(cal.getTime())
+
             go_Mesure_Activity()
         }
     }
