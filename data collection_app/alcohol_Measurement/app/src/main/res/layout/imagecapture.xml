@@ -18,9 +18,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" />
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/faceline"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/faceline" android:paddingBottom="16dp"/>
 
     </FrameLayout>
 
