@@ -3,80 +3,123 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
-                                             android:layout_height="match_parent" android:background="#eeeeff"
+                                             android:layout_height="match_parent"
+                                             android:background="#eeeeff"
                                              tools:layout_editor_absoluteY="25dp">
 
     <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
 
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="48dp"
             android:background="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="24dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp" android:layout_marginTop="96dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="48dp" app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
+                android:id="@+id/relativeLayout5"
                 android:layout_width="match_parent"
-                android:layout_height="340dp" android:id="@+id/relativeLayout5"
-                android:layout_alignParentTop="true" android:layout_marginTop="0dp" android:layout_marginRight="0dp"
-                android:layout_marginStart="0dp" android:layout_marginEnd="0dp"
-        >
+                android:layout_height="340dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp">
 
             <TextView
+                    android:id="@+id/txt_result_text"
                     android:layout_width="250dp"
-                    android:layout_height="72dp" android:id="@+id/txt_result_text"
-                    android:textColor="#7e46c8" android:textSize="54sp"
-                    android:layout_alignBottom="@+id/outside" android:layout_alignTop="@+id/outside"
-                    android:layout_alignParentEnd="false"
+                    android:layout_height="72dp"
+                    android:layout_alignTop="@+id/outside"
+                    android:layout_alignBottom="@+id/outside"
                     android:layout_alignParentStart="false"
+                    android:layout_alignParentEnd="false"
                     android:layout_centerInParent="true"
-                    android:gravity="center" android:layout_marginTop="1dp" android:layout_marginBottom="-1dp"
-            />
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="-1dp"
+                    android:gravity="center"
+                    android:textColor="#7e46c8"
+                    android:textSize="54sp"/>
+
             <TextView
-                    android:text="음주측정 결과"
+                    android:id="@+id/textView18"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/textView18"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentTop="true" android:textSize="26sp" android:textColor="#7e46c8"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true" android:gravity="top|center" android:paddingTop="10dp"/>
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:gravity="top|center"
+                    android:paddingTop="10dp"
+                    android:text="음주측정 결과"
+                    android:textColor="#7e46c8"
+                    android:textSize="26sp"/>
+
             <ImageView
+                    android:id="@+id/outside"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/round2"
-                    tools:layout_editor_absoluteX="71dp" android:id="@+id/outside"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="56dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="57dp"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp" android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="57dp" android:layout_marginTop="20dp"
-                    android:layout_alignParentTop="true" android:layout_alignParentStart="true"
-                    android:layout_marginStart="56dp"/>
-            <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" app:srcCompat="@drawable/round1"
-                    tools:layout_editor_absoluteX="71dp" android:id="@+id/inside"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent" android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="104dp" android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="57dp" android:layout_marginTop="108dp"
-                    android:layout_alignParentTop="true" android:layout_alignParentStart="true"
-                    android:layout_marginStart="56dp"/>
+                    app:srcCompat="@drawable/round2"
+                    tools:layout_editor_absoluteX="71dp"/>
+
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true">
+                <ImageView
+                        android:layout_gravity="center"
+                        android:id="@+id/inside"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/round1"/>
+                <ImageView
+                        android:layout_gravity="center"
+                        android:id="@+id/inside2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/round1"/>
+            </FrameLayout>
+
         </RelativeLayout>
+
         <Button
-                android:text="재측정"
-                android:layout_width="100dp"
-                android:layout_height="40dp" android:layout_alignParentStart="true"
-                android:layout_marginStart="45dp" android:layout_alignParentBottom="true"
                 android:id="@+id/btn_result_act_remesure"
-                android:layout_marginBottom="20dp" android:background="#8855cc" android:textColor="#ffffff"/>
-        <Button
-                android:text="종료"
                 android:layout_width="100dp"
-                android:layout_height="40dp" android:layout_alignParentEnd="true"
-                android:layout_marginEnd="45dp" android:layout_alignParentBottom="true"
-                android:id="@+id/btn_result_act_complete2"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="45dp"
                 android:layout_marginBottom="20dp"
-                android:layout_marginStart="0dp" android:background="@drawable/button_around9"/>
+                android:background="#8855cc"
+                android:text="재측정"
+                android:textColor="#ffffff"/>
+
+        <Button
+                android:id="@+id/btn_result_act_complete2"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_around9"
+                android:text="종료"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

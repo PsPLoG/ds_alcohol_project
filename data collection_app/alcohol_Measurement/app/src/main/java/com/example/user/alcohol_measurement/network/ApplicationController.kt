@@ -31,6 +31,7 @@ class  ApplicationController  :  Application()  {
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)
             .build()
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(baseURL)
             .client(okHttpClient)

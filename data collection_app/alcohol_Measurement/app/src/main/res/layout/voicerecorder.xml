@@ -115,7 +115,7 @@
                 android:layout_marginEnd="13dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
-                android:text="글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n총 3회 또박또박 읽어주세요."
+                android:text="글자가 나타나면 위의 글자를\n 한번 씩 끊어서 \n또박또박 읽어주세요."
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -123,6 +123,7 @@
                 tools:layout_editor_absoluteY="357dp" />
 
             <TextView
+                    android:layout_marginTop="16dp"
                 android:id="@+id/text_forth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
